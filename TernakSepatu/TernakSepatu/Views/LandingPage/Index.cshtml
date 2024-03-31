@@ -1,0 +1,37 @@
+﻿@model List<LandingPage>
+@{
+    ViewData["Title"] = "List of Landing Page";
+}
+
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h2 class="text-center mb-5">List of Landing Page</h2>
+
+<a asp-controller="LandingPage" asp-action="Create">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Images</th>
+            <th>Text</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td><img src="/Images/LandingPage/@item.ImageURL" width="100" /></td>
+                <td>@item.Text</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="LandingPage" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-primary btn-sm" asp-controller="LandingPage" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

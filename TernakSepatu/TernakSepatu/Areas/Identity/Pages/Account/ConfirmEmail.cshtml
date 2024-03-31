@@ -1,0 +1,13 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm email";
+}
+
+@{
+    // Langsung menuju halaman login
+    Response.Redirect("/Identity/Account/Login");
+}
+
+<h1>@ViewData["Title"]</h1>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
