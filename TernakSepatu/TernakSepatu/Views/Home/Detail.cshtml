@@ -54,7 +54,7 @@
             <h3 class="font-weight-semi-bold">@Model.ProductName <span class="text-white bg-dark">@Model.Condition</span></h3>
 
             <div class="d-flex mb-3">
-                <div class="text-primary mr-2">
+                <div class="text-dark mr-2">
                     <small class="fas fa-star"></small>
                     <small class="fas fa-star"></small>
                     <small class="fas fa-star"></small>
@@ -83,7 +83,7 @@
                     }
                     else
                     {
-                    <a href="#" class="btn btn-primary px-3 btn-add-to-cart" data-product-id="@Model.Id">
+                    <a href="#" class="btn btn-dark px-3 btn-add-to-cart" data-product-id="@Model.Id">
                         <i class="fa fa-shopping-cart mr-1"></i> Add To Cart
                     </a>
                     }
@@ -134,10 +134,10 @@
                         var brand = ViewData["Brand"] as Brand; // Ganti YourBrandModel dengan model merek Anda
 
                         string brandImageUrl = string.Empty;
-                        switch (brand.BrandName.ToLower()) // Ganti BrandName dengan properti nama merek
+                        switch (brand.BrandName.ToLower())
                         {
                             case "nike":
-                                brandImageUrl = "~/images/Chart/nike.jpeg";
+                                brandImageUrl = "~/images/Chart/nike.jpg";
                                 break;
                             case "adidas":
                                 brandImageUrl = "~/images/Chart/adidas.jpeg";
@@ -145,14 +145,21 @@
                             case "puma":
                                 brandImageUrl = "~/images/Chart/puma.png";
                                 break;
-                            case "newbalance":
+                            case "new balance": // Perhatikan penggunaan spasi dalam "new balance"
                                 brandImageUrl = "~/images/Chart/newbalance.jpeg";
+                                break;
+                            case "asics": // Perhatikan penggunaan spasi dalam "new balance"
+                                brandImageUrl = "~/images/Chart/asics.png";
+                                break;
+                            case "onitsuka": // Perhatikan penggunaan spasi dalam "new balance"
+                                brandImageUrl = "~/images/Chart/onitsuka.jpg";
                                 break;
                             default:
                                 // Jika merek tidak dikenali, tampilkan gambar default
-                                brandImageUrl = "~/images/Chart/default.jpg";
+                                brandImageUrl = "~/images/Chart/nike.jpg";
                                 break;
                         }
+
 
                         <img src="@Url.Content(brandImageUrl)" class="img-fluid w-25 zoom-effect" alt="Brand Image">
                     }
@@ -170,7 +177,7 @@
                                 <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                 <div class="media-body">
                                     <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                    <div class="text-primary mb-2">
+                                    <div class="text-dark mb-2">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -186,7 +193,7 @@
                             <small>Your email address will not be published. Required fields are marked *</small>
                             <div class="d-flex my-3">
                                 <p class="mb-0 mr-2">Your Rating * :</p>
-                                <div class="text-primary">
+                                <div class="text-dark">
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
@@ -208,7 +215,7 @@
                                     <input type="email" class="form-control" id="email">
                                 </div>
                                 <div class="form-group mb-0">
-                                    <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                    <input type="submit" value="Leave Your Review" class="btn btn-dark px-3">
                                 </div>
                             </form>
                         </div>
@@ -254,38 +261,35 @@
         <div class="row px-xl-5 pb-3">
             @foreach (var product in (List<Product>)ViewData["Products"])
             {
-                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                    <div class="card product-item border-0 mb-4">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0 ">
-                            <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="@product.ProductName">
-
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
-                            <div class="d-flex justify-content-center">
-                                <h6>$@product.Price</h6><h6 class="text-muted ml-2"><del>$@product.Discount</del></h6>
+                @if (product.Stock != "Habis")
+                {
+                    <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0 ">
+                                <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="@product.ProductName">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">
+                                    <span title="@product.ProductName">@product.ProductName</span>
+                                    <span class="text-white bg-dark">@product.Condition</span>
+                                </h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>$@product.Price</h6><h6 class="text-muted ml-2"><del>$@product.Discount</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0">
+                                    <i class="fas fa-eye text-dark mr-1"></i>View Detail
+                                </a>
+                                <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id" style="text-decoration: none;">
+                                    <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
+                                </a>
                             </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
-                            @if (product.Stock == "Habis")
-                            {
-                                <div class="text-center w-100">
-                                    <p class="text-muted mb-0 bg-danger">Sold Out Kilat!</p>
-                                </div>
-                            }
-                            else
-                            {
-                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0">
-                                <i class="fas fa-eye text-primary mr-1"></i>View Detail
-                            </a>
-                            <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id" style="text-decoration: none;">
-                                <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
-                            </a>
-                            }
-                        </div>
                     </div>
-                </div>
+                }
             }
+
         </div>
     </div>
     <!-- Products End -->

@@ -45,36 +45,40 @@ namespace TernakSepatu.Controllers.Costumer
         }
 
         [HttpPost]
-    public async Task<IActionResult> UploadProof(int orderId, IFormFile proofImage)
-    {
-        if (proofImage != null && proofImage.Length > 0)
+        public async Task<IActionResult> UploadProof(int orderId, IFormFile proofImage)
         {
-            var proofFileName = $"{orderId}_{Path.GetFileName(proofImage.FileName)}";
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Proofs", proofFileName);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            if (proofImage != null && proofImage.Length > 0)
             {
-                await proofImage.CopyToAsync(stream);
+                var proofFileName = $"{orderId}_{Path.GetFileName(proofImage.FileName)}";
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Proofs", proofFileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await proofImage.CopyToAsync(stream);
+                }
+
+                // Save proof information to database
+                var proof = new PaymentQrProof
+                {
+                    OrderId = orderId,
+                    ProofImage = proofFileName,
+                    Status = "Pending"
+                };
+
+                _context.PaymentQrProofs.Add(proof);
+                await _context.SaveChangesAsync();
+
+                // Set notification message
+                TempData["Notification"] = "Bukti pembayaran berhasil dikirim, Silahkan Menunggu Konfirmasi Admin Di halaman Ini. Jika dirasa Terlalu lama anda dapat menghubungi 081240417200 / Admin Ternak Sepatu";
+
+                // Redirect to Index action of Order controller
+                return RedirectToAction("Index", "Order");
             }
 
-            // Save proof information to database
-            var proof = new PaymentQrProof
-            {
-                OrderId = orderId,
-                ProofImage = proofFileName,
-                Status = "Pending"
-            };
-
-            _context.PaymentQrProofs.Add(proof);
-            await _context.SaveChangesAsync();
-
-            // Redirect or return success message
-            return RedirectToAction("Index", "Home");
+            // If no file uploaded, return error
+            return BadRequest();
         }
 
-        // If no file uploaded, return error
-        return BadRequest();
-    }
 
     }
 }

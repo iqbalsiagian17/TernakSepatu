@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using TernakSepatu.Areas.Identity.Data;
 using TernakSepatu.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 
 namespace TernakSepatu.Controllers.Admin
@@ -35,7 +36,26 @@ namespace TernakSepatu.Controllers.Admin
             // Periksa apakah pengguna memiliki peran tertentu (misalnya, Admin)
             if (roles.Contains("admin"))
             {
-                // Jika pengguna memiliki peran Admin, izinkan akses ke halaman
+                // Retrieve counts of products, brands, and confirmed orders from your database
+                var productCount = _context.Product.Count();
+                var brandCount = _context.Brand.Count();
+                var confirmedOrderCount = _context.Orders.Where(o => o.Status == "Confirmed").Count();
+
+                // Pass the counts to the view
+                ViewBag.ProductCount = productCount;
+                ViewBag.BrandCount = brandCount;
+                ViewBag.ConfirmedOrderCount = confirmedOrderCount;
+
+                // Cek apakah ada bukti pembayaran yang statusnya "Pending"
+                var pendingProofs = _context.PaymentQrProofs.Where(p => p.Status == "Pending").ToList();
+
+                if (pendingProofs.Any())
+                {
+                    // Jika ada bukti pembayaran yang masih "Pending", buat notifikasi
+                    ViewData["Notification"] = "Pelanggan menunggu konfirmasi bukti pembayarannya. Silahkan periksa.";
+                    ViewData["PendingProofsCount"] = pendingProofs.Count;
+                }
+
                 return View();
             }
             else
@@ -44,12 +64,7 @@ namespace TernakSepatu.Controllers.Admin
                 return RedirectToAction("AccessDenied", "Admin"); // Contoh redirect ke halaman AccessDenied
             }
         }
-        public IActionResult AccessDenied()
-        {
-            return View();
-        }
 
-        
 
     }
 }

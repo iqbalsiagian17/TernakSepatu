@@ -8,6 +8,8 @@ namespace TernakSepatu.Data;
 
 public class TernakSepatuDBContext : IdentityDbContext<ApplicationUser>
 {
+    internal object ProductDto;
+
     public TernakSepatuDBContext(DbContextOptions<TernakSepatuDBContext> options)
         : base(options)
     {

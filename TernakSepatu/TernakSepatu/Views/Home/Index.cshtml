@@ -11,6 +11,13 @@
     var userId = ViewData["UserId"] as string; // Mendapatkan userId dari ViewData
 }
 
+@{
+    var products = (List<Product>)ViewData["Products"];
+    var random = new Random();
+    var randomProducts = products.OrderBy(x => random.Next()).Take(8).ToList(); // Produk acak
+    var newProducts = products.OrderByDescending(p => p.Id).Take(5).ToList();
+
+}
 
 
 @using Microsoft.AspNetCore.Identity
@@ -76,19 +83,19 @@
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                 <h1 class="fa fa-check text-dark m-0 mr-3"></h1>
-                <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+                <h5 class="font-weight-semi-bold m-0">Kualitas Terjamin</h5>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                 <h1 class="fa fa-shipping-fast text-dark m-0 mr-2"></h1>
-                <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+                <h5 class="font-weight-semi-bold m-0">Pengiriman Kilat</h5>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                 <h1 class="fas fa-exchange-alt text-dark m-0 mr-3"></h1>
-                <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+                <h5 class="font-weight-semi-bold m-0">Retur 3 Hari</h5>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -131,57 +138,97 @@
 
 <!-- Products Start -->
 <div class="container-fluid pt-5">
+
+
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">New Products</span></h2>
+    </div>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var product in newProducts)
+        {
+            if (product.Stock != "Habis")
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="@product.ProductName">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@string.Format("{0:C0}", product.Price)</h6>
+                                @if (product.Discount > 0)
+                                {
+                                    <h6 class="text-muted ml-2"><del>@string.Format("{0:C0}", product.Discount)</del></h6>
+                                }
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>View Detail</a>
+
+                            <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-wishlist" data-product-id="@product.Id">
+                                <i class="fas fa-heart text-dark mr-1"></i>
+                            </a>
+
+                            <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id">
+                                <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+
+
+
     <div class="text-center mb-4">
         <h2 class="section-title px-5"><span class="px-2">Trendy Products</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
-        @foreach (var product in (List<Product>)ViewData["Products"])
+        @foreach (var product in randomProducts)
         {
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card product-item border-0 mb-4 @((product.Stock == "Habis") ? "disabled" : "")">
-                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0 ">
-                        <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="@product.ProductName">
-                    </div>
-                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>@string.Format("{0:C0}", product.Price)</h6>
-                            @if (product.Discount > 0)
-                            {
-                                <h6 class="text-muted ml-2"><del>@string.Format("{0:C0}", product.Discount)</del></h6>
-                            }
+            if (product.Stock != "Habis")
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="@product.ProductName">
                         </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between bg-light border">
-                        @if (product.Stock != "Habis")
-                        {
-                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@string.Format("{0:C0}", product.Price)</h6>
+                                @if (product.Discount > 0)
+                                {
+                                    <h6 class="text-muted ml-2"><del>@string.Format("{0:C0}", product.Discount)</del></h6>
+                                }
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>View Detail</a>
 
                             <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-wishlist" data-product-id="@product.Id">
-                                <i class="fas fa-heart text-primary mr-1"></i>
+                                <i class="fas fa-heart text-dark mr-1"></i>
                             </a>
 
                             <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id">
-                                <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
+                                <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
                             </a>
-                        }
-                        else
-                        {
-                            <div class="text-center w-100">
-                                <p class="text-muted mb-0 bg-danger">Sold Out Kilat!</p>
-                            </div>
-                        }
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
-
     </div>
+
+
 
 </div>
 <!-- Products End -->
 <!-- Back to Top -->
-<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
 

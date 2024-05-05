@@ -125,15 +125,25 @@ namespace TernakSepatu.Controllers
                 filteredProducts = _context.Product.ToList();
             }
 
+            // Get unique colors from the filtered products
+            var colors = filteredProducts.Select(p => p.Colors).Distinct().OrderBy(c => c).ToList();
+            ViewData["Colors"] = colors;
+
+            var size = filteredProducts.Select(p => p.Size).Distinct().OrderBy(c => c).ToList();
+            ViewData["Size"] = size;
+
+            var conditon = filteredProducts.Select(p => p.Condition).Distinct().OrderBy(c => c).ToList();
+            ViewData["Condition"] = conditon;
+
             ViewData["Products"] = filteredProducts;
 
             var categories = _context.Category.ToList();
             ViewData["Category"] = categories;
 
             return View();
-
-
         }
+
+
         [Authorize]
 
         public IActionResult AddToCart(int id)

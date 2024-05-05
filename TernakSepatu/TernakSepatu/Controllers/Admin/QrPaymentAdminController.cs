@@ -106,5 +106,35 @@ namespace TernakSepatu.Controllers.Admin
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult RejectProof(int proofId, string rejectionReason)
+        {
+            var proof = _context.PaymentQrProofs.FirstOrDefault(p => p.Id == proofId);
+
+            if (proof == null)
+            {
+                return NotFound(); // If payment proof is not found
+            }
+
+            // Update the status of the payment proof to "Ditolak" and save the rejection reason
+            proof.Status = $"Ditolak, dikarenakan {rejectionReason}";
+            _context.SaveChanges();
+
+            // Find the associated order and update its status to "GAGAL", including the rejection reason from the proof
+            var relatedOrder = _context.Orders.FirstOrDefault(o => o.OrderId == proof.OrderId);
+            if (relatedOrder != null)
+            {
+                // Concatenate the rejection reason from the proof with the "GAGAL" status of the related order
+                relatedOrder.Status = $"{proof.Status}";
+                _context.SaveChanges();
+            }
+
+            // Redirect back to the Approve page to display the list of payment proofs
+            return RedirectToAction("Approve");
+        }
+
+
+
+
     }
 }

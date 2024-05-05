@@ -1,5 +1,11 @@
 ﻿@model Order
 
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+
+
 <h1>Ship Order - Order ID: @Model.OrderId</h1>
 
 <form asp-controller="ConfirmationAdmin" asp-action="ShipOrder" method="post">

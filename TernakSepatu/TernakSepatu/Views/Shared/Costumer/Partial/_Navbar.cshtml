@@ -1,4 +1,6 @@
-﻿    <div class="container-fluid mb-5">
+﻿  
+  
+<div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
             <!-- Side Menu -->
             <div class="col-lg-3 d-none d-lg-block">
@@ -30,8 +32,11 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a asp-controller="Home" asp-action="Index" class="nav-item nav-link">Home</a>
                             <a asp-controller="Home" asp-action="Shop" class="nav-item nav-link">Shop</a>
+                        @if (User.IsInRole("admin"))
+                        {
                             <a href="~/Admin/Dashboard" class="nav-item nav-link">Admin</a>
-                        </div>
+                        }
+                    </div>
                     </div>
                 </nav>
 
@@ -54,7 +59,7 @@
                                         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                             <div class="p-3" style="max-width: 700px;">
                                                 <h3 class="display-4 text-white font-weight-semi-bold mb-4">@landingPage.Text</h3>
-                                                <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                                            <a asp-controller="Home" asp-action="Shop" class="btn btn-light py-2 px-3">Shop Now</a>
                                             </div>
                                         </div>
                                     </div>

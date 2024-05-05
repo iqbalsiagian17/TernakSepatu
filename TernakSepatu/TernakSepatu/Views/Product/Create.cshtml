@@ -58,9 +58,25 @@
                     </div>
                     <div class="form-group">
                         <label for="Colors">Colors</label>
-                        <input asp-for="Colors" class="form-control" id="Colors" />
+                        <select asp-for="Colors" class="form-control" id="Colors">
+                            <option value="">Select Color</option>
+                            <option value="White">White</option>
+                            <option value="Black">Black</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Grey">Grey</option>
+                            <option value="Red">Red</option>
+                            <option value="Green">Green</option>
+                            <option value="White-Black">White - Black</option>
+                            <option value="White-Blue">White - Blue</option>
+                            <option value="White-Grey">White - Grey</option>
+                            <option value="White-Green">White - Green</option>
+                            <option value="Black-Blue">Black - Blue</option>
+                            <option value="Black-Red">Black - Red</option>
+                            <option value="Black-Green">Black - Green</option>
+                        </select>
                         <span asp-validation-for="Colors" class="text-danger"></span>
                     </div>
+
                     <div class="form-group">
                         <label for="Details">Details</label>
                         <textarea asp-for="Details" class="form-control" id="Details"></textarea>
@@ -83,19 +99,34 @@
                     </div>
                     <div class="form-group">
                         <label for="Gender">Gender</label>
-                        <input asp-for="Gender" class="form-control" id="Gender" />
+                        <select asp-for="Gender" class="form-control" id="Gender">
+                            <option value="">Select Gender</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Wanita">Wanita</option>
+                            <option value="Unisex">Unisex</option>
+                        </select>
                         <span asp-validation-for="Gender" class="text-danger"></span>
                     </div>
+
                     <div class="form-group">
                         <label for="Stock">Stock</label>
-                        <input asp-for="Stock" class="form-control" id="Stock" />
+                        <select asp-for="Stock" class="form-control" id="Stock">
+                            <option value="">Select Stock</option>
+                            <option value="Ready">Ready</option>
+                        </select>
                         <span asp-validation-for="Stock" class="text-danger"></span>
                     </div>
+
                     <div class="form-group">
-                        <label for="Conditon">Condition</label>
-                        <input asp-for="Condition" class="form-control" id="Condition" />
+                        <label for="Condition">Condition</label>
+                        <select asp-for="Condition" class="form-control" id="Condition">
+                            <option value="">Select Condition</option>
+                            <option value="Second">Second</option>
+                            <option value="New">New</option>
+                        </select>
                         <span asp-validation-for="Condition" class="text-danger"></span>
                     </div>
+
                     <div class="row">
                         <div class="col">
                             <button type="submit" class="btn btn-primary">Create</button>

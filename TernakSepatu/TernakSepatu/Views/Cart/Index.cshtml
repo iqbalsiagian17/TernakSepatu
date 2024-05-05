@@ -11,48 +11,59 @@
             @if (Model != null && Model.Count > 0)
             {
                 <table class="table table-bordered text-center mb-0">
-                    <thead class="bg-secondary text-dark">
-                        <tr>
-                            <th>Images</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Condition</th>
-                            <th>Remove</th>
-                        </tr>
-                    </thead>
-                    <tbody class="align-middle">
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td class="align-middle">
-                                    @if (item.Product != null)
-                                    {
-                                        <img src="~/Images/Product/@item.Product.ImageURL.Split(',')[0]" alt="@item.Product.ProductName" style="width: 50px;">
-                                    }
-                                </td>
-                                <td class="align-middle">
-                                    @item.Product.ProductName
-                                </td>
-                                <td class="align-middle price">$@item.Price</td>
-                                <td class="align-middle">@item.Quantity</td>
-                                <td class="align-middle">@item.Product.Condition</td>
-                                <td class="align-middle">
-                                    <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
-                                        <input type="hidden" name="cartId" value="@item.Id" />
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+    <thead class="bg-secondary text-dark">
+        <tr>
+            <th>Images</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Condition</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody class="align-middle">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="align-middle">
+                    @if (item.Product != null)
+                    {
+                        <img src="~/Images/Product/@item.Product.ImageURL.Split(',')[0]" alt="@item.Product.ProductName" style="width: 50px;">
+                    }
+                </td>
+                <td class="align-middle">
+                    @item.Product.ProductName
+                </td>
+                <td class="align-middle price">@string.Format("{0:C}", item.Price)</td>
+                <td class="align-middle">@item.Quantity</td>
+                <td class="align-middle">@item.Product.Condition</td>
+                <td class="align-middle">
+                    <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="cartId" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-times"></i> Remove
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="alert alert-info" role="alert">
+        Your cart is empty. <a href="@Url.Action("Index", "Home")">Continue shopping</a>.
+    </div>
+}
+else
+{
+    <div class="text-end mt-3">
+        <a href="@Url.Action("Index", "Checkout")" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
+}
 
 
-
-                <a href="@Url.Action("Index", "Checkout")" class="btn btn-primary ml-auto">Checkout</a>
 
             }
             else
@@ -63,6 +74,8 @@
 
     </div>
 </div>
+
+
 
 
 

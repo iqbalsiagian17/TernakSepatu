@@ -65,6 +65,15 @@
             case "New Balance":
                 imageName = '/Images/Pelengkap/newbalance.jpg';
                 break;
+            case "Onitsuka":
+                imageName = '/Images/Pelengkap/onitsuka.jpg';
+                break;
+            case "Converse":
+                imageName = '/Images/Pelengkap/converse.jpg';
+                break;
+            case "Vans":
+                imageName = '/Images/Pelengkap/vans.png';
+                break;
 
             default:
                 // Jika tidak ada brand name dari ViewData, pilih gambar secara acak
@@ -86,91 +95,48 @@
                 <div class="row px-xl-5">
                     <!-- Shop Sidebar Start -->
                     <div class="col-lg-3 col-md-12">
-                        <!-- Price Start -->
-                        <div class="border-bottom mb-4 pb-4">
-                            <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
-                            <form>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" checked id="price-all">
-                                    <label class="custom-control-label" for="price-all">All Price</label>
-                                    <span class="badge border font-weight-normal">1000</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-1">
-                                    <label class="custom-control-label" for="price-1">$0 - $100</label>
-                                    <span class="badge border font-weight-normal">150</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-2">
-                                    <label class="custom-control-label" for="price-2">$100 - $200</label>
-                                    <span class="badge border font-weight-normal">295</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-3">
-                                    <label class="custom-control-label" for="price-3">$200 - $300</label>
-                                    <span class="badge border font-weight-normal">246</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-4">
-                                    <label class="custom-control-label" for="price-4">$300 - $400</label>
-                                    <span class="badge border font-weight-normal">145</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                    <input type="checkbox" class="custom-control-input" id="price-5">
-                                    <label class="custom-control-label" for="price-5">$400 - $500</label>
-                                    <span class="badge border font-weight-normal">168</span>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Price End -->
                         <!-- Color Start -->
-                        <div class="border-bottom mb-4 pb-4">
-                            <h5 class="font-weight-semi-bold mb-4">Filter by color</h5>
-                            <form>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" checked id="color-all">
-                                    <label class="custom-control-label" for="price-all">All Color</label>
-                                    <span class="badge border font-weight-normal">1000</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-1">
-                                    <label class="custom-control-label" for="color-1">Black</label>
-                                    <span class="badge border font-weight-normal">150</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-2">
-                                    <label class="custom-control-label" for="color-2">White</label>
-                                    <span class="badge border font-weight-normal">295</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-3">
-                                    <label class="custom-control-label" for="color-3">Red</label>
-                                    <span class="badge border font-weight-normal">246</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="color-4">
-                                    <label class="custom-control-label" for="color-4">Blue</label>
-                                    <span class="badge border font-weight-normal">145</span>
-                                </div>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                    <input type="checkbox" class="custom-control-input" id="color-5">
-                                    <label class="custom-control-label" for="color-5">Green</label>
-                                    <span class="badge border font-weight-normal">168</span>
-                                </div>
-                            </form>
+            <div class="border-bottom mb-4 pb-4">
+                <h5 class="font-weight-semi-bold mb-4">Filter by Color</h5>
+                <form id="colorFilterForm">
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input color-checkbox" name="color" value="all" id="color-all" checked>
+                        <label class="custom-control-label" for="color-all">All Color</label>
+                        <span class="badge border font-weight-normal">1000</span>
+                    </div>
+                    @foreach (var color in ViewBag.Colors)
+                    {
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input color-checkbox" name="color" value="@color" id="color-@color">
+                            <label class="custom-control-label" for="color-@color">@color</label>
+                            <span class="badge border font-weight-normal">1000</span>
                         </div>
+                    }
+                </form>
+            </div>
+
                         <!-- Color End -->
                         <!-- Size Start -->
-                        <div class="mb-5">
-                            <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
-                            <form>
-                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" checked id="size-all">
-                                    <label class="custom-control-label" for="size-all">All Size</label>
-                                    <span class="badge border font-weight-normal">1000</span>
-                                </div>
-                            </form>
+            <div class="mb-5">
+                <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
+                <form>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input size-checkbox" checked id="size-all">
+                        <label class="custom-control-label" for="size-all">All Size</label>
+                        <span class="badge border font-weight-normal">1000</span>
+                    </div>
+                    @foreach (var size in ViewBag.Size)
+                    {
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" class="custom-control-input size-checkbox" name="size" value="@size" id="size-@size">
+                            <label class="custom-control-label" for="size-@size">@size</label>
+                            <span class="badge border font-weight-normal">1000</span>
                         </div>
+                    }
+                </form>
+            </div>
+
+
                         <!-- Size End -->
                     </div>
                     <!-- Shop Sidebar End -->
@@ -186,29 +152,6 @@
                     {
                         <h5>Brand: @ViewData["BrandName"]</h5>
                     }
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <form action="">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search by name">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text bg-transparent text-primary">
-                                                    <i class="fa fa-search"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div class="dropdown ml-4">
-                                        <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                            Sort by
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Latest</a>
-                                            <a class="dropdown-item" href="#">Popularity</a>
-                                            <a class="dropdown-item" href="#">Best Rating</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
 
@@ -218,15 +161,16 @@
                 }
                 else
                 {
-                    @foreach (var product in products)
+                    <!-- Tampilkan produk yang masih tersedia -->
+                    @foreach (var product in products.Where(p => p.Stock != "Habis"))
                     {
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                            <div class="card product-item border-0 mb-4">
+                            <div class="card product-item border-0 mb-4" data-product-color="@product.Colors" data-product-size="@product.Size" data-product-conditon="@product.Condition">
                                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                     <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="">
                                 </div>
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                    <h6 class="text-truncate mb-3">@product.ProductName</h6>
+                                    <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
                                     <div class="d-flex justify-content-center">
                                         <h6>@string.Format("{0:C}", product.Price)</h6>
                                         @if (product.Discount > 0)
@@ -236,24 +180,40 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
-                                    @if (product.Stock == "Habis")
-                                    {
-                                        <div class="text-center w-100">
-                                            <p class="text-muted mb-0 bg-danger">Sold Out Kilat!</p>
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                    <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                    <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>View Detail</a>
                                     <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-wishlist" data-product-id="@product.Id">
-                                        <i class="fas fa-heart text-primary mr-1"></i>
+                                        <i class="fas fa-heart text-dark mr-1"></i>
                                     </a>
-
-
                                     <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id">
-                                        <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
+                                        <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
                                     </a>
-                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Tampilkan produk yang sudah habis stoknya di bagian paling belakang -->
+                    @foreach (var product in products.Where(p => p.Stock == "Habis"))
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                            <div class="card product-item border-0 mb-4" data-product-color="@product.Colors" data-product-size="@product.Size" data-product-conditon="@product.Condition">
+                                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                    <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="">
+                                </div>
+                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                    <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
+                                    <div class="d-flex justify-content-center">
+                                        <h6>@string.Format("{0:C}", product.Price)</h6>
+                                        @if (product.Discount > 0)
+                                        {
+                                            <h6 class="text-muted ml-2"><del>@string.Format("{0:C}", product.Discount)</del></h6>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between bg-light border">
+                                    <div class="text-center w-100">
+                                        <p class="mb-0 bg-danger text-white">Sold Out Kilat!</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +223,8 @@
 
 
 
-                           @*  <div class="col-12 pb-1">
+
+                           @* <div class="col-12 pb-1">
                                 <nav aria-label="Page navigation">
                                     <ul class="pagination justify-content-center mb-3">
                                         <li class="page-item disabled">
@@ -349,4 +310,162 @@
             });
         });
     });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const colorCheckboxes = document.querySelectorAll('.color-checkbox');
+        const allColorCheckbox = document.getElementById('color-all');
+
+        allColorCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                // Jika checkbox "All Color" dicentang, tampilkan semua produk
+                const products = document.querySelectorAll('.product-item');
+                products.forEach(product => {
+                    product.style.display = 'block';
+                });
+
+                // Reset semua checkbox warna menjadi tidak dicentang
+                colorCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            }
+        });
+
+        colorCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                // Buat array untuk menyimpan nilai warna yang dipilih
+                const selectedColors = [];
+
+                // Loop melalui semua checkbox warna
+                colorCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        selectedColors.push(checkbox.value); // Tambahkan nilai warna yang dipilih ke dalam array
+                    }
+                });
+
+                // Lakukan filter pada produk sesuai dengan warna yang dipilih
+                const products = document.querySelectorAll('.product-item');
+
+                products.forEach(product => {
+                    const productColor = product.getAttribute('data-product-color');
+
+                    // Tampilkan atau sembunyikan produk berdasarkan warna yang dipilih
+                    if (selectedColors.includes(productColor) || selectedColors.length === 0) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const colorCheckboxes = document.querySelectorAll('.color-checkbox');
+        const allColorCheckbox = document.getElementById('color-all');
+
+        allColorCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                // Jika checkbox "All Color" dicentang, tampilkan semua produk
+                const products = document.querySelectorAll('.product-item');
+                products.forEach(product => {
+                    product.style.display = 'block';
+                });
+
+                // Reset semua checkbox warna menjadi tidak dicentang
+                colorCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            }
+        });
+
+        colorCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                // Buat array untuk menyimpan nilai warna yang dipilih
+                const selectedColors = [];
+
+                // Loop melalui semua checkbox warna
+                colorCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        selectedColors.push(checkbox.value); // Tambahkan nilai warna yang dipilih ke dalam array
+                    }
+                });
+
+                // Lakukan filter pada produk sesuai dengan warna yang dipilih
+                const products = document.querySelectorAll('.product-item');
+
+                products.forEach(product => {
+                    const productColor = product.getAttribute('data-product-color');
+
+                    // Tampilkan atau sembunyikan produk berdasarkan warna yang dipilih
+                    if (selectedColors.includes(productColor) || selectedColors.length === 0) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sizeCheckboxes = document.querySelectorAll('.size-checkbox');
+        const allSizeCheckbox = document.getElementById('size-all');
+
+        allSizeCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                // Jika checkbox "All Size" dicentang, tampilkan semua produk
+                const products = document.querySelectorAll('.product-item');
+                products.forEach((product, index) => {
+                    product.style.display = 'block';
+                    product.style.order = index; // Atur urutan sesuai dengan indeks asli
+                });
+
+                // Reset semua checkbox ukuran menjadi tidak dicentang
+                sizeCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            }
+        });
+
+        sizeCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                console.log('Checkbox size changed.'); // Log pesan untuk memeriksa apakah event listener ini terpanggil
+
+                // Buat array untuk menyimpan nilai ukuran yang dipilih
+                const selectedSizes = [];
+
+                // Loop melalui semua checkbox ukuran
+                sizeCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        selectedSizes.push(checkbox.value); // Tambahkan nilai ukuran yang dipilih ke dalam array
+                    }
+                });
+
+                console.log('Selected sizes:', selectedSizes); // Log nilai ukuran yang dipilih untuk memeriksa apakah logika filter berfungsi dengan benar
+
+                // Lakukan filter pada produk sesuai dengan ukuran yang dipilih
+                const products = document.querySelectorAll('.product-item');
+
+                products.forEach((product, index) => {
+                    const productSizes = product.getAttribute('data-product-size').split(','); // Ambil ukuran-ukuran produk dari atribut data
+
+                    // Tampilkan atau sembunyikan produk berdasarkan ukuran yang dipilih
+                    if (selectedSizes.some(size => productSizes.includes(size)) || selectedSizes.length === 0) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+
 </script>

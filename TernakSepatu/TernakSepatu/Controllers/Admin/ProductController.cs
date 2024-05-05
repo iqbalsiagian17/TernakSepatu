@@ -160,35 +160,25 @@ namespace TernakSepatu.Controllers.Admin
                 return RedirectToAction("Index");
             }
 
-            if (productDto.ImageURL == null || productDto.ImageURL.Count == 0)
+            if (productDto.ImageURL != null && productDto.ImageURL.Count > 0)
             {
-                ModelState.AddModelError("ImageURL", "At least one image file is required");
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return View(productDto);
-            }
-
-            try
-            {
-                List<string> newFileNames = new List<string>();
-                foreach (var imageFile in productDto.ImageURL)
+                // Jika input file untuk gambar baru diisi, lakukan penggantian gambar
+                try
                 {
-                    // Save the image file
-                    string newFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(imageFile.FileName);
-                    string imageFullPath = Path.Combine(environment.WebRootPath, "Images", "Product", newFileName);
-
-                    using (var stream = new FileStream(imageFullPath, FileMode.Create))
+                    List<string> newFileNames = new List<string>();
+                    foreach (var imageFile in productDto.ImageURL)
                     {
-                        imageFile.CopyTo(stream);
-                    }
-                    newFileNames.Add(newFileName);
-                }
+                        // Save the image file
+                        string newFileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(imageFile.FileName);
+                        string imageFullPath = Path.Combine(environment.WebRootPath, "Images", "Product", newFileName);
 
-                // Jika ada gambar baru yang diunggah
-                if (productDto.ImageURL != null)
-                {
+                        using (var stream = new FileStream(imageFullPath, FileMode.Create))
+                        {
+                            imageFile.CopyTo(stream);
+                        }
+                        newFileNames.Add(newFileName);
+                    }
+
                     // Hapus gambar lama
                     var oldImageNames = product.ImageURL.Split(',');
                     foreach (var oldImageName in oldImageNames)
@@ -199,37 +189,46 @@ namespace TernakSepatu.Controllers.Admin
                             System.IO.File.Delete(oldImagePath);
                         }
                     }
+
+                    // Simpan nama file yang baru diubah
+                    string imagesString = string.Join(",", newFileNames);
+                    product.ImageURL = imagesString;
                 }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "An error occurred while uploading and replacing the images.");
+                    // Handle exception
+                    return View(product); // Pass the existing product to the view
+                }
+            }
 
-                // Update informasi produk
-                product.ProductName = productDto.ProductName;
-                product.CategoryID = productDto.CategoryID;
-                product.SubCategoryID = productDto.SubCategoryID;
-                product.BrandID = productDto.BrandID;
-                product.Size = productDto.Size;
-                product.Colors = productDto.Colors;
-                product.Details = productDto.Details;
-                product.Price = productDto.Price;
-                product.Discount = productDto.Discount;
-                product.Gender = productDto.Gender;
-                product.Stock = productDto.Stock;
-                product.Condition = productDto.Condition;
+            // Update informasi produk yang tidak terkait dengan gambar
+            product.ProductName = productDto.ProductName;
+            product.CategoryID = productDto.CategoryID;
+            product.SubCategoryID = productDto.SubCategoryID;
+            product.BrandID = productDto.BrandID;
+            product.Size = productDto.Size;
+            product.Colors = productDto.Colors;
+            product.Details = productDto.Details;
+            product.Price = productDto.Price;
+            product.Discount = productDto.Discount;
+            product.Gender = productDto.Gender;
+            product.Stock = productDto.Stock;
+            product.Condition = productDto.Condition;
 
-
-                string imagesString = string.Join(",", newFileNames);
-                product.ImageURL = imagesString; // Simpan nama file yang baru diubah
-
+            try
+            {
                 context.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
+                ModelState.AddModelError("", "An error occurred while editing the product information.");
                 // Handle exception
-                ModelState.AddModelError("", "An error occurred while editing the product.");
-                return View(productDto);
+                return View(product); // Pass the existing product to the view
             }
         }
+
 
         public IActionResult Delete(int id)
         {

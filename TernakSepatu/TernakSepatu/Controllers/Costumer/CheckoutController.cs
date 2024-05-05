@@ -70,19 +70,24 @@ namespace TernakSepatu.Controllers.Customer
 
             if (model.CartItems == null)
             {
-                // Jika CartItems null, kembalikan response dengan pesan error
+                // If CartItems is null, return a response with an error message
                 return BadRequest("Cart is empty. Please add items to your cart before placing an order.");
             }
 
             var cartItems = await _context.Carts
-            .Include(c => c.Product)
-            .Where(c => c.UserId == userId)
-            .ToListAsync();
+                .Include(c => c.Product)
+                .Where(c => c.UserId == userId)
+                .ToListAsync();
 
             decimal totalAmount = cartItems.Sum(c => c.Quantity * c.Price);
-            string status = model.PaymentMethod == "COD" ? "Menunggu Konfirmasi Admin" : "Menunggu Pembayaran";
 
-            // Hitung TotalAmount dari CartItems
+            // Add $50 if the selected shipping method is JNT
+            if (model.ShippingMethod == "JNT")
+            {
+                totalAmount += 50000;
+            }
+
+            string status = model.PaymentMethod == "COD" ? "Menunggu Konfirmasi Admin" : "Menunggu Pembayaran";
 
             var order = new Order
             {
@@ -94,7 +99,6 @@ namespace TernakSepatu.Controllers.Customer
                 ShippingAddress = GetSelectedAddress(model.SelectedAddressId),
                 Status = status,
                 OrderDetails = new List<OrderDetail>()
-
             };
 
             foreach (var cartItem in cartItems)
@@ -132,6 +136,7 @@ namespace TernakSepatu.Controllers.Customer
 
             return RedirectToAction("OrderConfirmation", new { orderId = order.OrderId });
         }
+
 
         private string GetSelectedAddress(int addressId)
         {

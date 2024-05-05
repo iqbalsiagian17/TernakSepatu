@@ -1,5 +1,9 @@
 ﻿@model TernakSepatu.Models.Checkout
 
+@{
+    Layout = "~/Views/Shared/Costumer/_Layout.cshtml";
+}
+
 <h1>Checkout</h1>
 
 <h2>Cart Items</h2>
@@ -27,7 +31,7 @@
         </tbody>
     </table>
     <div>
-        <strong>Total Amount: @Model.TotalAmount.ToString("C")</strong>
+        <strong>Total Amount: <span id="totalAmount">@Model.TotalAmount.ToString("C")</span></strong>
     </div>
 }
 else
@@ -37,12 +41,10 @@ else
 
 <h2>Checkout Form</h2>
 <form method="post" asp-action="PlaceOrder">
-    <input type="hidden" asp-for="CartItems" value="@Model.CartItems" /> <!-- Kirim CartItems sebagai input tersembunyi -->
+    <input type="hidden" asp-for="CartItems" value="@Model.CartItems" />
 
     <label for="SelectedAddressId">Select Address:</label>
     <select asp-for="SelectedAddressId" asp-items="@Model.AddressOptions"></select><br /><br />
-
-
 
     <label for="PaymentMethod">Payment Method:</label>
     <select asp-for="PaymentMethod" class="form-control">
@@ -52,13 +54,31 @@ else
     </select>
     <br /><br />
 
-
     <label for="ShippingMethod">Shipping Method:</label>
-    <select asp-for="ShippingMethod" class="form-control">
+    <select id="shippingMethod" asp-for="ShippingMethod" class="form-control">
+        <option disabled selected>Pilih pengiriman Anda</option>
         <option value="JNT">JNT</option>
     </select>
+
     <br /><br />
 
     <button type="submit">Place Order</button>
 </form>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#shippingMethod').change(function () {
+            var selectedShippingMethod = $(this).val();
+            var totalAmount = parseFloat('@Model.TotalAmount');
+
+            // If JNT is selected, add $50 to the total
+            if (selectedShippingMethod === 'JNT') {
+                totalAmount += 50000;
+            }
+
+            // Update the total amount display
+            $('#totalAmount').text(totalAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
+        });
+    });
+</script>

@@ -16,11 +16,8 @@
                 <a class="text-dark" href="">FAQs</a>
                 <span class="text-muted px-2">|</span>
                 <a class="text-dark" asp-controller="Order" asp-action="Index">Lihat Pesanan Saya</a>
-
                 <span class="text-muted px-2">|</span>
                 <a class="text-dark" asp-action="Index" asp-controller="Address">Alamat</a>
-                <span class="text-muted px-2">|</span>
-                <a class="text-dark" asp-action="Create" asp-controller="Address">Buat Alamat</a>
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
@@ -52,11 +49,11 @@
         <div class="col-lg-3 col-6 text-right">
             <div class="btn-group" role="group">
                 <a href="@Url.Action("Index", "Wishlist")" class="btn border" id="wishlistLink">
-                    <i class="fas fa-heart text-primary"></i>
+                    <i class="fas fa-heart text-dark"></i>
                     <span id="wishlistItemCount" class="badge text-dark"></span>
                 </a>
                 <a href="@Url.Action("Index", "Cart")" class="btn border" id="cartLink">
-                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <i class="fas fa-shopping-cart text-dark"></i>
                     <span id="cartItemCount" class="badge text-dark"></span>
                 </a>
                 <div class="ml-auto py-0 d-flex">
