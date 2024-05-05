@@ -2,12 +2,270 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>User ID : @ViewData["UserID"]</p>
+@{
+    Layout = "~/Views/Shared/Costumer/_Layout.cshtml";
+}
+
+@{
+    var context = ViewData.Model as TernakSepatu.Data.TernakSepatuDBContext;
+    var userId = ViewData["UserId"] as string; // Mendapatkan userId dari ViewData
+}
+
+
+
+@using Microsoft.AspNetCore.Identity
+@using TernakSepatu.Areas.Identity.Data
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<style>
+    .cat-item {
+        width: 400px; /* Tentukan lebar tetap untuk setiap card */
+        height: 400px; /* Tentukan tinggi tetap untuk setiap card */
+        margin-right: 15px; /* Sesuaikan nilai ini untuk menyesuaikan lebar kotak */
+        margin-left: 15px; 
+    }
+
+    .cat-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+        .cat-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+    .img-height {
+        height: 400px; /* Atur tinggi tetap untuk semua gambar */
+        object-fit: cover; /* Pastikan gambar memenuhi seluruh area gambar dengan mempertahankan aspek rasio */
+    }
+
+    /* Gaya untuk elemen Payment Support */
+    .payment-support {
+        font-weight: bold;
+        margin-bottom: 10px; /* Jarak bawah antara teks dan ikon */
+    }
+
+    /* Gaya untuk ikon pembayaran */
+    .payment-icon {
+        width: 50px; /* Lebar ikon */
+        height: auto; /* Tinggi otomatis sesuai proporsi */
+        margin-left: 10px; /* Jarak kiri antara teks dan ikon */
+        vertical-align: middle; /* Posisi vertikal ikon di tengah teks */
+    }
+</style>
+
+
+
+
+@section Navbar {
+    @Html.Partial("~/Views/Shared/Costumer/Partial/_Navbar.cshtml")
+}
+
+
+
+
+<!-- Featured Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fa fa-check text-dark m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fa fa-shipping-fast text-dark m-0 mr-2"></h1>
+                <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fas fa-exchange-alt text-dark m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <h1 class="fa fa-phone-volume text-dark m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured End -->
+
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        @foreach (var brand in (List<Brand>)ViewData["Brands"])
+        {
+            <!-- Hitung jumlah total produk untuk setiap merek (brand) -->
+            var totalProductsForBrand = context.Product.Where(p => p.BrandID == brand.Id).Count();
+
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div class="cat-item d-flex flex-column border rounded-lg mb-4 p-3 text-center" style="padding: 30px;">
+                    <!-- Tautan ke halaman Shop dengan filter merek yang dipilih -->
+                    <a href="@Url.Action("Shop", "Home", new { brandName = brand.BrandName })" class="cat-img position-relative overflow-hidden mb-3">
+                        <img class="img-fluid brand-image" src="~/Images/Brand/@brand.ImageURL" alt="">
+                    </a>
+                    <!-- Menampilkan jumlah total Produk -->
+                    <p class="text-right">@totalProductsForBrand Products</p>
+                    <!-- Menampilkan nama Brand -->
+                    <h5 class="font-weight-semi-bold m-0">@brand.BrandName</h5>
+                </div>
+            </div>
+        }
+    </div>
 </div>
 
 
-<a href="~/Admin/Dashboard">Show</a>
-<br />
+<!-- Categories End -->
+
+
+<!-- Products Start -->
+<div class="container-fluid pt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Trendy Products</span></h2>
+    </div>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var product in (List<Product>)ViewData["Products"])
+        {
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4 @((product.Stock == "Habis") ? "disabled" : "")">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0 ">
+                        <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="@product.ProductName">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>@string.Format("{0:C0}", product.Price)</h6>
+                            @if (product.Discount > 0)
+                            {
+                                <h6 class="text-muted ml-2"><del>@string.Format("{0:C0}", product.Discount)</del></h6>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        @if (product.Stock != "Habis")
+                        {
+                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+
+                            <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-wishlist" data-product-id="@product.Id">
+                                <i class="fas fa-heart text-primary mr-1"></i>
+                            </a>
+
+                            <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id">
+                                <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart
+                            </a>
+                        }
+                        else
+                        {
+                            <div class="text-center w-100">
+                                <p class="text-muted mb-0 bg-danger">Sold Out Kilat!</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+<!-- Products End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+
+
+
+<!-- Link to SweetAlert Library JS (you need to include this in your project) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- JavaScript Code to Handle Click Event and Display Notification -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const productId = this.getAttribute('data-product-id');
+
+                // Simulate adding the product to the cart with an AJAX request
+                // Replace this with your actual logic to add the product to the cart
+                // For demonstration, we'll just show a success notification
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Dimasukkan Ke Keranjang Anda',
+                    text: 'The product has been successfully added to your cart.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+        });
+    });
+</script>
+
+<!-- JavaScript Code to Handle Click Event and Display Notification -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToWishlistButtons = document.querySelectorAll('.btn-add-to-wishlist');
+
+        addToWishlistButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const productId = this.getAttribute('data-product-id');
+
+                // Simulate adding the product to the wishlist with an AJAX request
+                // Replace this with your actual logic to add the product to the wishlist
+                // For demonstration, we'll just show a success notification
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Dimasukkan Ke Daftar Wishlist Anda',
+                    text: 'The product has been successfully added to your wishlist.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        // Pastikan nilai TempData["ShowAddAddressPopup"] benar-benar boolean
+        var showAddAddressPopup = @Html.Raw(Json.Serialize(TempData["ShowAddAddressPopup"]));
+
+        if (showAddAddressPopup) {
+            // Tampilkan SweetAlert
+            Swal.fire({
+                title: 'Tambahkan Informasi Alamat',
+                text: 'Anda belum memiliki informasi alamat. Silakan tambahkan informasi alamat Anda sebelum melanjutkan.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                onClose: function () {
+                    // Redirect langsung ke halaman Address/Create setelah tombol OK ditekan
+                    window.location.href = '@Url.Action("Create", "Address")';
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Pengguna menekan tombol OK, redirect langsung ke halaman Address/Create
+                    window.location.href = '@Url.Action("Create", "Address")';
+                }
+            });
+        }
+    });
+</script>
+
+

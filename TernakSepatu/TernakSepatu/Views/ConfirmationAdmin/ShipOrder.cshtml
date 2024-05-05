@@ -1,0 +1,10 @@
+﻿@model Order
+
+<h1>Ship Order - Order ID: @Model.OrderId</h1>
+
+<form asp-controller="ConfirmationAdmin" asp-action="ShipOrder" method="post">
+    <input type="hidden" name="orderId" value="@Model.OrderId" />
+    <label for="trackingNumber">Tracking Number:</label>
+    <input type="text" id="trackingNumber" name="trackingNumber" required />
+    <button type="submit">Ship Order</button>
+</form>

@@ -1,0 +1,46 @@
+﻿@model List<PaymentQrProof>
+
+    @{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+    }
+
+<h1>Acc Bukti Pembayaran</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Proof Image</th>
+            <th>Status</th>
+            <th>Customer Name</th>
+            @foreach (var proof in Model)
+            {
+            @if (proof.Status == "Pending")
+{
+            <th>Action</th>
+}
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var proof in Model)
+        {
+            <tr>
+                <td>@proof.OrderId</td>
+                <td><img src="~/Proofs/@proof.ProofImage" alt="Proof Image" style="max-width: 200px; max-height: 200px;" /></td>
+                <td>@proof.Status</td>
+                <td>@proof.Order.UserId</td> <!-- Menampilkan UserId dari Order terkait -->
+                <td>
+                    @if (proof.Status == "Pending")
+                    {
+                        <!-- Form untuk menyetujui bukti pembayaran -->
+                        <form asp-controller="QrPaymentAdmin" asp-action="ApproveProof" method="post">
+                            <input type="hidden" name="proofId" value="@proof.Id" />
+                            <button type="submit" class="btn btn-primary">Approve</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

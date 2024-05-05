@@ -5,12 +5,476 @@
       "PackagePath": "staticwebassets\\TernakSepatu.bundle.scp.css"
     },
     {
-      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\images1.jpg",
-      "PackagePath": "staticwebassets\\Images\\LandingPage\\images1.jpg"
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\css\\style.css",
+      "PackagePath": "staticwebassets\\Costumer\\css\\style.css"
     },
     {
-      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\images2.jpg",
-      "PackagePath": "staticwebassets\\Images\\LandingPage\\images2.jpg"
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\css\\style.min.css",
+      "PackagePath": "staticwebassets\\Costumer\\css\\style.min.css"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\js\\main.js",
+      "PackagePath": "staticwebassets\\Costumer\\js\\main.js"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\easing\\easing.js"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\easing\\easing.min.js",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\LICENSE",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Costumer\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\Costumer\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240404134009493.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240404134009493.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240404135439767.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240404135439767.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240404233109578.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240404233109578.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240404233150470.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240404233150470.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240404233237724.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240404233237724.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240404233443658.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240404233443658.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405132502521.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405132502521.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405132514119.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405132514119.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405132527618.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405132527618.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405134655630.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405134655630.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405134707616.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405134707616.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405134720003.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405134720003.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405142014718.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405142014718.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405142026702.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405142026702.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405142051374.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405142051374.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405164545877.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405164545877.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405164556993.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405164556993.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240405164619397.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240405164619397.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240406180526208.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240406180526208.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240407161059784.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240407161059784.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240413150448561.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240413150448561.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240413150859709.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240413150859709.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240414124155711.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240414124155711.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240414124203863.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240414124203863.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240414124213598.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240414124213598.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240414172319088.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240414172319088.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240414172328201.jpg",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240414172328201.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240414172336874.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240414172336874.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Brand\\20240414231145658.png",
+      "PackagePath": "staticwebassets\\Images\\Brand\\20240414231145658.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Chart\\New balance.png",
+      "PackagePath": "staticwebassets\\Images\\Chart\\New balance.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Chart\\Puma.png",
+      "PackagePath": "staticwebassets\\Images\\Chart\\Puma.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Chart\\adidas.jpeg",
+      "PackagePath": "staticwebassets\\Images\\Chart\\adidas.jpeg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Chart\\newbalance.jpeg",
+      "PackagePath": "staticwebassets\\Images\\Chart\\newbalance.jpeg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Chart\\nike.jpeg",
+      "PackagePath": "staticwebassets\\Images\\Chart\\nike.jpeg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Chart\\nike.jpg",
+      "PackagePath": "staticwebassets\\Images\\Chart\\nike.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240402203830798.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240402203830798.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240402212402212.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240402212402212.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240403092545463.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240403092545463.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240403114829611.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240403114829611.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240403123411382.png",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240403123411382.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240404092057119.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240404092057119.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240404105040652.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240404105040652.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240405132438689.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240405132438689.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240405133344973.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240405133344973.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240405141955398.jpg",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240405141955398.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240405164524400.png",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240405164524400.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240406185548496.gif",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240406185548496.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240406190301368.gif",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240406190301368.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240407010300315.gif",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240407010300315.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240407161046798.gif",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240407161046798.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240414124138748.gif",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240414124138748.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240414172304316.gif",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240414172304316.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\LandingPage\\20240502110933453.gif",
+      "PackagePath": "staticwebassets\\Images\\LandingPage\\20240502110933453.gif"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Logo\\Logo.png",
+      "PackagePath": "staticwebassets\\Images\\Logo\\Logo.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Logo\\logo-nobg.png",
+      "PackagePath": "staticwebassets\\Images\\Logo\\logo-nobg.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Payment\\paypal.png",
+      "PackagePath": "staticwebassets\\Images\\Payment\\paypal.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Payment\\qris.png",
+      "PackagePath": "staticwebassets\\Images\\Payment\\qris.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Pelengkap\\adidas.jpg",
+      "PackagePath": "staticwebassets\\Images\\Pelengkap\\adidas.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Pelengkap\\newbalance.jpg",
+      "PackagePath": "staticwebassets\\Images\\Pelengkap\\newbalance.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Pelengkap\\nike.jpg",
+      "PackagePath": "staticwebassets\\Images\\Pelengkap\\nike.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240404124445674.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240404124445674.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405105521326.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405105521326.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405105521329.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405105521329.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405105521330.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405105521330.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405105521331.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405105521331.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405110531271.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405110531271.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405110531289.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405110531289.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405110716035.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405110716035.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405110716037.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405110716037.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405111044669.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405111044669.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405111810997.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405111810997.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405142523887.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405142523887.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405142523888.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405142523888.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405154409405.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405154409405.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405160307358.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405160307358.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405160307368.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405160307368.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405160443576.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405160443576.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405160738754.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405160738754.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405164802673.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405164802673.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240405164802674.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240405164802674.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240406170115146.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240406170115146.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240407161146179.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240407161146179.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240413150520773.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240413150520773.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240413150520775.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240413150520775.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240413150929458.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240413150929458.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240414124331546.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240414124331546.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240414132457090.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240414132457090.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240414172421710.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240414172421710.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240414172421711.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240414172421711.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240414231212342.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240414231212342.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240415011005172.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240415011005172.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240502113113740.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240502113113740.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240502113632088.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240502113632088.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\Product\\20240502113632090.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\20240502113632090.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\QrPayment\\20240414224841121.png",
+      "PackagePath": "staticwebassets\\Images\\QrPayment\\20240414224841121.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\QrPayment\\20240414230601439.png",
+      "PackagePath": "staticwebassets\\Images\\QrPayment\\20240414230601439.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\QrPayment\\20240414230645216.webp",
+      "PackagePath": "staticwebassets\\Images\\QrPayment\\20240414230645216.webp"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\QrPayment\\20240414230710998.jpg",
+      "PackagePath": "staticwebassets\\Images\\QrPayment\\20240414230710998.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\QrPayment\\20240415010824962.jpg",
+      "PackagePath": "staticwebassets\\Images\\QrPayment\\20240415010824962.jpg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Images\\QrPayment\\20240415010924933.jpeg",
+      "PackagePath": "staticwebassets\\Images\\QrPayment\\20240415010924933.jpeg"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Proofs\\2_crest_121_2_0_color.png",
+      "PackagePath": "staticwebassets\\Proofs\\2_crest_121_2_0_color.png"
+    },
+    {
+      "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Proofs\\4_images (2).jpeg",
+      "PackagePath": "staticwebassets\\Proofs\\4_images (2).jpeg"
     },
     {
       "Id": "D:\\IQBAL KULIAH DATA\\SEMESTER 4\\Pemrograman Teknologi. NET\\SUBMIT\\Project\\TernakSepatu\\TernakSepatu\\wwwroot\\Theme\\css\\ruang-admin.css",

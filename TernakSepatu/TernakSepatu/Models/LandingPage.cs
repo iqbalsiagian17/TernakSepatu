@@ -4,6 +4,8 @@ namespace TernakSepatu.Models
 {
     public class LandingPage
     {
+        internal object CreateAt;
+
         public int Id { get; set; }
 
         [Required]
@@ -12,5 +14,9 @@ namespace TernakSepatu.Models
 
         [Required]
         public string Text { get; set; }
+
+        public string Status { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }

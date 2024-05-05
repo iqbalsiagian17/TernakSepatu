@@ -17,6 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -2070,6 +2071,13 @@
     <None Include="wwwroot\Theme\vendor\select2\tests\vendor\jquery-2.2.4.js" />
     <None Include="wwwroot\Theme\vendor\select2\tests\vendor\jquery-3.4.1.js" />
     <None Include="wwwroot\Theme\vendor\select2\tests\vendor\qunit-1.23.1.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Brand\" />
+    <Folder Include="wwwroot\Images\QrPayment\" />
+    <Folder Include="wwwroot\Images\Product\" />
+    <Folder Include="wwwroot\Proofs\" />
   </ItemGroup>
 
 </Project>

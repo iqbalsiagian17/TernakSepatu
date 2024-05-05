@@ -1,0 +1,169 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TernakSepatu.Areas.Identity.Data
+
+@{
+    var user = User.Identity.IsAuthenticated ? await UserManager.FindByNameAsync(User.Identity.Name) : null;
+}
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!-- Topbar Start -->
+<div class="container-fluid">
+    <div class="row bg-secondary py-2 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-dark" href="">FAQs</a>
+                <span class="text-muted px-2">|</span>
+                <a class="text-dark" asp-controller="Order" asp-action="Index">Lihat Pesanan Saya</a>
+
+                <span class="text-muted px-2">|</span>
+                <a class="text-dark" asp-action="Index" asp-controller="Address">Alamat</a>
+                <span class="text-muted px-2">|</span>
+                <a class="text-dark" asp-action="Create" asp-controller="Address">Buat Alamat</a>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-dark px-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="text-dark px-2" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="text-dark px-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="text-dark px-2" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="text-dark pl-2" href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a asp-controller="Home" asp-action="Index" class="text-decoration-none">
+                <img src="~/Images/Logo/Logo.png" alt="Ternak Sepatu" class="img-fluid" style="width: 500px; height: 70px; object-fit: contain;">
+            </a>
+        </div>
+        <div class="col-lg-6 col-6 text-left">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for products">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-transparent text-primary"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 col-6 text-right">
+            <div class="btn-group" role="group">
+                <a href="@Url.Action("Index", "Wishlist")" class="btn border" id="wishlistLink">
+                    <i class="fas fa-heart text-primary"></i>
+                    <span id="wishlistItemCount" class="badge text-dark"></span>
+                </a>
+                <a href="@Url.Action("Index", "Cart")" class="btn border" id="cartLink">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span id="cartItemCount" class="badge text-dark"></span>
+                </a>
+                <div class="ml-auto py-0 d-flex">
+                    @if (!SignInManager.IsSignedIn(User))
+                    {
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="loginRegisterDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Log In / Register
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="loginRegisterDropdown">
+                                <a class="dropdown-item" href="/Identity/Account/Login">Log In</a>
+                                <a class="dropdown-item" href="/Identity/Account/Register">Register</a>
+                            </div>
+                        </div>
+                    }
+                    else if (user != null)
+                    {
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hello @user.FirstName!
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button id="logout" type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+<script>
+    $(document).ready(function () {
+        // Function to update cart item count
+        function updateCartItemCount() {
+            $.ajax({
+                url: '/Cart/GetCartItemCount',
+                type: 'GET',
+                success: function (result) {
+                    $('#cartItemCount').text(result);
+                },
+                error: function () {
+                    console.log('Error retrieving cart item count.');
+                }
+            });
+        }
+
+        // Event listener for "Add To Cart" button click
+        $(document).on('click', '.btn-add-to-cart', function (e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+            $.ajax({
+                url: '/Cart/AddToCart',
+                type: 'POST',
+                data: { id: productId },
+                success: function () {
+                    updateCartItemCount();
+                },
+                error: function () {
+                    console.log('Failed to add product to cart.');
+                }
+            });
+        });
+
+        // Call updateCartItemCount function on page load
+        updateCartItemCount();
+    });
+
+    $(document).ready(function () {
+        // Function to update wishlist item count
+        function updateWishlistItemCount() {
+            $.ajax({
+                url: '/Wishlist/GetWishlistItemCount',
+                type: 'GET',
+                success: function (result) {
+                    $('#wishlistItemCount').text(result);
+                },
+                error: function () {
+                    console.log('Error retrieving wishlist item count.');
+                }
+            });
+        }
+
+        // Call updateWishlistItemCount function on page load
+        updateWishlistItemCount();
+
+        // Event listener for "Add to Wishlist" button click
+        $(document).on('click', '.btn-add-to-wishlist', function (e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+            $.ajax({
+                url: '/Wishlist/AddToWishlist',
+                type: 'POST',
+                data: { id: productId },
+                success: function () {
+                    updateWishlistItemCount();
+                },
+                error: function () {
+                    console.log('Failed to add product to wishlist.');
+                }
+            });
+        });
+    });
+</script>

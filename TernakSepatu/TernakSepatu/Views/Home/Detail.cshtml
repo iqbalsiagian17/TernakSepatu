@@ -1,0 +1,358 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TernakSepatu.Areas.Identity.Data
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/Costumer/_Layout.cshtml";
+    var context = ViewData.Model as TernakSepatu.Data.TernakSepatuDBContext;
+
+    var formattedPrice = string.Format("{0:#,##0}", Model.Price);
+    // or: var formattedPrice = Model.Price.ToString("#,##0");
+
+}
+
+
+
+@section Navbar {
+    @Html.Partial("~/Views/Shared/Costumer/Partial/_Navbar2.cshtml")
+}
+
+
+
+
+
+
+<!-- Shop Detail Start -->
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-5 pb-5">
+            <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner border">
+                    @foreach (var imageUrl in Model.ImageURL.Split(','))
+                    {
+                        <div class="carousel-item @(imageUrl == Model.ImageURL.Split(',')[0] ? "active" : "")">
+                            <img class="w-100 h-100" src="~/Images/Product/@imageUrl" alt="@Model.ProductName">
+                        </div>
+                    }
+                </div>
+                <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                    <i class="fa fa-2x fa-angle-left text-dark"></i>
+                </a>
+                <a class="carousel-control-next" href="#product-carousel" data-slide="next">
+                    <i class="fa fa-2x fa-angle-right text-dark"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="col-lg-7 pb-5">
+            <h3 class="font-weight-semi-bold">@Model.ProductName <span class="text-white bg-dark">@Model.Condition</span></h3>
+
+            <div class="d-flex mb-3">
+                <div class="text-primary mr-2">
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star-half-alt"></small>
+                    <small class="far fa-star"></small>
+                </div>
+                <small class="pt-1">(50 Reviews)</small>
+            </div>
+            <h3 class="font-weight-semi-bold mb-4">Rp @formattedPrice</h3>
+            <p class="mb-4"><p>@Model.Details</p>
+            <div class="d-flex mb-3">
+                <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
+                <form>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="size-1" name="size" checked>
+                        <label class="custom-control-label" for="size-1">@Model.Size</label>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="d-flex align-items-center mb-4 pt-2" data-product-id="@Model.Id">
+                    @if (Model.Stock == "Habis")
+                    {
+                    <p class="text-muted mb-0 bg-danger">Sold Out Kilat!</p>
+                    }
+                    else
+                    {
+                    <a href="#" class="btn btn-primary px-3 btn-add-to-cart" data-product-id="@Model.Id">
+                        <i class="fa fa-shopping-cart mr-1"></i> Add To Cart
+                    </a>
+                    }
+            </div>
+
+
+            <div class="d-flex pt-2">
+                <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
+                <div class="d-inline-flex">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Size Chart</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Reviews (0)</a>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade show active text-center" id="tab-pane-1">
+                    <style>
+                        .zoom-effect {
+                            transition: transform 0.3s ease; /* Animasi perbesaran */
+                        }
+
+                            .zoom-effect:hover {
+                                transform: scale(1.5); /* Perbesar gambar saat kursor diarahkan ke atas */
+                                z-index: 999; /* Pastikan gambar mendapat lapisan teratas */
+                            }
+                    </style>
+
+                    <h4 class="mb-3">Product Description</h4>
+                    @if (ViewData["Brand"] != null)
+                    {
+                        var brand = ViewData["Brand"] as Brand; // Ganti YourBrandModel dengan model merek Anda
+
+                        string brandImageUrl = string.Empty;
+                        switch (brand.BrandName.ToLower()) // Ganti BrandName dengan properti nama merek
+                        {
+                            case "nike":
+                                brandImageUrl = "~/images/Chart/nike.jpeg";
+                                break;
+                            case "adidas":
+                                brandImageUrl = "~/images/Chart/adidas.jpeg";
+                                break;
+                            case "puma":
+                                brandImageUrl = "~/images/Chart/puma.png";
+                                break;
+                            case "newbalance":
+                                brandImageUrl = "~/images/Chart/newbalance.jpeg";
+                                break;
+                            default:
+                                // Jika merek tidak dikenali, tampilkan gambar default
+                                brandImageUrl = "~/images/Chart/default.jpg";
+                                break;
+                        }
+
+                        <img src="@Url.Content(brandImageUrl)" class="img-fluid w-25 zoom-effect" alt="Brand Image">
+                    }
+                    else
+                    {
+                        <p>Brand information not available.</p>
+                    }
+                </div>
+
+                <div class="tab-pane fade" id="tab-pane-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="mb-4">1 review for "Colorful Stylish Shirt"</h4>
+                            <div class="media mb-4">
+                                <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                <div class="media-body">
+                                    <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                    <div class="text-primary mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="mb-4">Leave a review</h4>
+                            <small>Your email address will not be published. Required fields are marked *</small>
+                            <div class="d-flex my-3">
+                                <p class="mb-0 mr-2">Your Rating * :</p>
+                                <div class="text-primary">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="message">Your Review *</label>
+                                    <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Your Name *</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Your Email *</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="form-group mb-0">
+                                    <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .cat-item {
+            width: 400px; /* Tentukan lebar tetap untuk setiap card */
+            height: 400px; /* Tentukan tinggi tetap untuk setiap card */
+        }
+
+        .cat-img {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+            .cat-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+        .img-height {
+            height: 400px; /* Atur tinggi tetap untuk semua gambar */
+            object-fit: cover; /* Pastikan gambar memenuhi seluruh area gambar dengan mempertahankan aspek rasio */
+        }
+
+    </style>
+
+
+    <!-- Products Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Trendy Products</span></h2>
+        </div>
+        <div class="row px-xl-5 pb-3">
+            @foreach (var product in (List<Product>)ViewData["Products"])
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0 ">
+                            <img class="img-fluid w-100 img-height" src="~/Images/Product/@(product.ImageURL.Split(',')[0])" alt="@product.ProductName">
+
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">@product.ProductName <span class="text-white bg-dark">@product.Condition</span></h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>$@product.Price</h6><h6 class="text-muted ml-2"><del>$@product.Discount</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            @if (product.Stock == "Habis")
+                            {
+                                <div class="text-center w-100">
+                                    <p class="text-muted mb-0 bg-danger">Sold Out Kilat!</p>
+                                </div>
+                            }
+                            else
+                            {
+                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0">
+                                <i class="fas fa-eye text-primary mr-1"></i>View Detail
+                            </a>
+                            <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id" style="text-decoration: none;">
+                                <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
+                            </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- Products End -->
+
+
+
+
+
+
+</div>
+
+
+<!-- Shop Detail End -->
+
+
+
+<!-- Link to SweetAlert Library JS (you need to include this in your project) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- JavaScript Code to Handle Click Event and Display Notification -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const productId = this.getAttribute('data-product-id');
+
+                // Simulate adding the product to the cart with an AJAX request
+                // Replace this with your actual logic to add the product to the cart
+                // For demonstration, we'll just show a success notification
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Dimasukkan Ke Keranjang Anda',
+                    text: 'The product has been successfully added to your cart.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+        });
+    });
+</script>
+
+<!-- JavaScript Code to Handle Click Event and Display Notification -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToWishlistButtons = document.querySelectorAll('.btn-add-to-wishlist');
+
+        addToWishlistButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const productId = this.getAttribute('data-product-id');
+
+                // Simulate adding the product to the wishlist with an AJAX request
+                // Replace this with your actual logic to add the product to the wishlist
+                // For demonstration, we'll just show a success notification
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Dimasukkan Ke Daftar Wishlist Anda',
+                    text: 'The product has been successfully added to your wishlist.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+        });
+    });
+</script>

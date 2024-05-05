@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Migrations;
 using TernakSepatu.Areas.Identity.Data;
+using TernakSepatu.Data;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace TernakSepatu.Controllers.Admin
 {
@@ -9,12 +13,15 @@ namespace TernakSepatu.Controllers.Admin
     {
         private readonly ILogger<AdminController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly TernakSepatuDBContext _context;
 
-        public AdminController(ILogger<AdminController> logger, UserManager<ApplicationUser> userManager)
+        public AdminController(ILogger<AdminController> logger, UserManager<ApplicationUser> userManager, TernakSepatuDBContext context)
         {
             _logger = logger;
             _userManager = userManager;
+            _context = context; // Menggunakan parameter 'context' untuk menginisialisasi field '_context'
         }
+
 
 
         public async Task<IActionResult> Dashboard()
@@ -42,14 +49,9 @@ namespace TernakSepatu.Controllers.Admin
             return View();
         }
 
-
-
-
-
-
-
-
-
+        
 
     }
 }
+
+

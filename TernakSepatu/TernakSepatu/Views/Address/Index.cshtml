@@ -1,0 +1,50 @@
+﻿@model List<TernakSepatu.Models.AddressInfo>
+
+
+@{
+    Layout = "~/Views/Shared/Costumer/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Alamat</title>
+</head>
+<body>
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <h2>Daftar Alamat</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                    <th>Action</th> <!-- New column for action -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var address in Model)
+                {
+                    <tr>
+                        <td>@address.Id</td>
+                        <td>@address.street</td>
+                        <td>@address.city</td>
+                        <td>@address.state</td>
+                        <td>@address.postal_code</td>
+                        <td>@address.country</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Address", new { id = address.Id })">Edit</a> |
+                            <a href="@Url.Action("Delete", "Address", new { id = address.Id })">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿@model List<TernakSepatu.Models.Order>
+
+@{
+    ViewData["Title"] = "Your Orders";
+}
+
+<h1>Your Orders</h1>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Date</th>
+                <th>Total Amount</th>
+                <th>Payment Method</th>
+                <th>Shipping Method</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderId</td>
+                    <td>@order.OrderDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@order.TotalAmount.ToString("C")</td>
+                    <td>@order.PaymentMethod</td>
+                    <td>@order.ShippingMethod</td>
+                    <td>@order.Status</td>
+                    <td>
+                        <a asp-controller="Order" asp-action="Detail" asp-route-orderId="@order.OrderId" class="btn btn-primary">View Details</a>
+
+                        @if (order.Status == "Menunggu Pembayaran" && order.PaymentMethod == "QrCode")
+                        {
+                            <a asp-controller="QrPayment" asp-action="Index" asp-route-orderId="@order.OrderId" class="btn btn-success">Bayar</a>
+
+                        }
+                        @if (order.Status.StartsWith("Pesanan Telah dikirim"))
+                        {
+                            <form asp-controller="Order" asp-action="ConfirmDelivery" method="post">
+                                <input type="hidden" name="orderId" value="@order.OrderId" />
+                                <button type="submit" class="btn btn-primary">Received</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No orders found.</p>
+}

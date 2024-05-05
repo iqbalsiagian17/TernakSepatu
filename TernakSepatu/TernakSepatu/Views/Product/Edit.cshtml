@@ -1,0 +1,276 @@
+﻿@model TernakSepatu.Models.Product
+
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<style>
+    .curd {
+        margin-bottom: 20px;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        display: inline-block;
+        width: calc(50% - 20px);
+        margin-right: 20px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .button-container {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .delete-button,
+    .replace-button {
+        padding: 5px 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        background-color: #dc3545;
+        color: #fff;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+
+        .delete-button:hover,
+        .replace-button:hover {
+            background-color: #c82333;
+        }
+
+    /* Clearfix untuk membersihkan float */
+    .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <!-- Form Basic -->
+        <div class="card mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Edit Product</h6>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input asp-for="ProductName" class="form-control" id="productName" placeholder="Enter product name">
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryID">Category</label>
+                        <select asp-for="CategoryID" class="form-control" id="categoryID">
+                            <option value="">-- Select Category --</option>
+                            @foreach (var category in ViewBag.Categories)
+                            {
+                                <option value="@category.Id">@category.CategoryName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="subCategoryID">Subcategory</label>
+                        <select asp-for="SubCategoryID" class="form-control" id="subCategoryID">
+                            <option value="">-- Select Subcategory --</option>
+                            @foreach (var subcategory in ViewBag.SubCategories)
+                            {
+                                <option value="@subcategory.Id">@subcategory.SubCategoryName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="SubCategoryID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="brandID">Brand</label>
+                        <select asp-for="BrandID" class="form-control" id="brandID">
+                            <option value="">-- Select Brand --</option>
+                            @foreach (var brand in ViewBag.Brands)
+                            {
+                                <option value="@brand.Id">@brand.BrandName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="BrandID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Size</label>
+                        <input asp-for="Size" class="form-control" id="size" placeholder="Enter product size">
+                        <span asp-validation-for="Size" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="colors">Colors</label>
+                        <input asp-for="Colors" class="form-control" id="colors" placeholder="Enter product colors">
+                        <span asp-validation-for="Colors" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Details</label>
+                        <textarea asp-for="Details" class="form-control" id="details" rows="3" placeholder="Enter product details"></textarea>
+                        <span asp-validation-for="Details" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input asp-for="Price" class="form-control" id="price" placeholder="Enter product price">
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="discount">Discount</label>
+                        <input asp-for="Discount" class="form-control" id="discount" placeholder="Enter product discount">
+                        <span asp-validation-for="Discount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input asp-for="Gender" class="form-control" id="gender" placeholder="Enter product gender">
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Stock">Stock</label>
+                        <input asp-for="Stock" class="form-control" id="Stock" placeholder="Enter product Stock">
+                        <span asp-validation-for="Stock" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Condition">Condition</label>
+                        <input asp-for="Condition" class="form-control" id="Condition" placeholder="Enter product Stock">
+                        <span asp-validation-for="Condition" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageURL">Product Image</label>
+                        <input type="file" name="ImageURL" class="form-control" id="imageURL" multiple>
+                        <span asp-validation-for="ImageURL" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="curd">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Product Images</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="clearfix">
+                                    <!-- Digunakan untuk membersihkan float -->
+                                    @if (!string.IsNullOrEmpty(Model.ImageURL))
+                                    {
+                                        var imageUrls = Model.ImageURL.Split(',');
+                                        for (int i = 0; i < imageUrls.Length; i++)
+                                        {
+                                            if (i % 2 == 0) // Membuat dua per baris
+                                            {
+                                                <div class="image-container">
+                                                    <img src="@Url.Content("~/Images/Product/" + imageUrls[i])" alt="Product Image" width="200" />
+                                                    <div class="button-container">
+                                                        <button type="button" class="delete-button" data-product-id="@Model.Id" data-index="@i">Delete</button>
+                                                        <button type="button" class="replace-button" data-product-id="@Model.Id" data-index="@i">Replace</button>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="image-container" style="margin-right: 0;">
+                                                    <!-- Menghilangkan margin kanan pada gambar kedua di setiap baris -->
+                                                    <img src="@Url.Content("~/Images/Product/" + imageUrls[i])" alt="Product Image" width="200" />
+                                                    <div class="button-container">
+                                                        <button type="button" class="delete-button" data-product-id="@Model.Id" data-index="@i">Delete</button>
+                                                        <button type="button" class="replace-button" data-product-id="@Model.Id" data-index="@i">Replace</button>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index" role="button">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".delete-button").click(function () {
+            var productId = $(this).data("product-id");
+            var index = $(this).data("index");
+            var deleteButton = $(this); // Menyimpan referensi tombol delete yang diklik
+
+            $.ajax({
+                type: "POST",
+                url: "/Product/DeleteImage",
+                data: { productId: productId, index: index },
+                success: function (response) {
+                    if (response.success) {
+                        // Hapus gambar dan container dari DOM jika berhasil dihapus dari server
+                        deleteButton.closest(".image-container").remove();
+                    } else {
+                        alert("Failed to delete image.");
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while processing your request.");
+                }
+            });
+        });
+
+        // Function untuk menangani klik tombol replace (penggantian gambar) tetap sama seperti sebelumnya
+        $(".replace-button").click(function () {
+            var productId = $(this).data("product-id");
+            var index = $(this).data("index");
+
+            // Membuat input file untuk mengunggah gambar baru
+            var inputFile = $("<input type='file' accept='image/*' style='display:none;'>");
+
+            // Menambahkan input file ke dalam dokumen
+            $("body").append(inputFile);
+
+            // Menampilkan dialog pengunggahan gambar baru ketika input file diubah
+            inputFile.on("change", function () {
+                var formData = new FormData();
+                formData.append("productId", productId);
+                formData.append("index", index);
+                formData.append("image", inputFile[0].files[0]);
+
+                // Mengirim gambar baru ke server
+                $.ajax({
+                    type: "POST",
+                    url: "/Product/ReplaceImage",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if (response.success) {
+                            // Refresh halaman setelah berhasil mengganti gambar
+                            location.reload();
+                        } else {
+                            alert("Failed to replace image.");
+                        }
+                    },
+                    error: function () {
+                        alert("An error occurred while processing your request.");
+                    }
+                });
+            });
+
+            // Mengklik input file secara otomatis untuk memunculkan dialog pengungahan gambar
+            inputFile.click();
+        });
+    });
+</script>

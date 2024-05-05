@@ -1,0 +1,18 @@
+﻿@model TernakSepatu.Models.Order
+
+@{
+    ViewData["Title"] = "Order Confirmation";
+    string orderMessage = TempData["OrderMessage"]?.ToString();
+}
+
+<h1>Order Confirmation</h1>
+
+@if (!string.IsNullOrEmpty(orderMessage))
+{
+    <p>@orderMessage</p>
+}
+
+<p>Order ID: @Model.OrderId</p>
+<!-- Display other order details as needed -->
+
+<a asp-controller="Order" asp-action="Index">Lihat Orders Kamu</a>

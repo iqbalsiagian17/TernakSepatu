@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TernakSepatu.Areas.Identity.Data
+
+
+@{
+    bool isLoggedIn = User.Identity.IsAuthenticated;
+
+}
+
+<style>
+
+    /* Gaya untuk elemen Payment Support */
+    .payment-support {
+        font-weight: bold;
+        margin-bottom: 10px; /* Jarak bawah antara teks dan ikon */
+    }
+
+    /* Gaya untuk ikon pembayaran */
+    .payment-icon {
+        width: 50px; /* Lebar ikon */
+        height: auto; /* Tinggi otomatis sesuai proporsi */
+        margin-left: 10px; /* Jarak kiri antara teks dan ikon */
+        vertical-align: middle; /* Posisi vertikal ikon di tengah teks */
+    }
+</style>
+
+<footer style="background-color: #f8f9fa;">
+    <div class="container-fluid text-dark mt-5 pt-5">
+        <div class="row px-xl-5 pt-5">
+            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none">
+                    <img src="~/Images/Logo/logo-nobg.png" alt="Ternak Sepatu" class="img-fluid mb-5">
+                </a>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-dark mr-3"></i>Porsea, Toba, Sumatra Utara</p>
+                <p class="mb-2"><i class="fa fa-envelope text-dark mr-3"></i>ternaksepatu@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-dark mr-3"></i>+012 345 67890</p>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-md-4 mb-5">
+                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+                            <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
+                            <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                            <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Checkout</a>
+                            <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-5">
+                        <h5 class="font-weight-bold text-dark mb-4">
+                            Customer service
+                        </h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-dark mb-2" href="shop.html">
+                                <i class="fa fa-angle-right mr-2"></i>Payment method
+                            </a>
+                            <a class="text-dark mb-2" href="detail.html">
+                                <i class="fa fa-angle-right mr-2"></i>
+                                Return of Goods & Funds
+                            </a>
+                            <a class="text-dark mb-2" href="cart.html">
+                                <i class="fa fa-angle-right mr-2"></i>TernakSepatu Guarantee
+                            </a>
+                        </div>
+                    </div>
+                    @if (!isLoggedIn)
+                    {
+                        <div class="col-md-4 mb-5" id="ternakSepatuSection">
+                            <h5 class="font-weight-bold text-dark mb-4">Ternak Sepatu</h5>
+                            <p>Mari bergabung dengan kami untuk berbelanja sepatu yang keren! Jika kamu sudah memiliki akun, silakan <a href="/Identity/Account/Login" class="text-primary">login</a>. Jika belum, <a href="/Identity/Account/Register" class="text-primary">daftar sekarang</a> untuk mendapatkan akses eksklusif.</p>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+            <div class="col-md-6 px-xl-0">
+                <p class="mb-md-0 text-center text-md-left text-dark">
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Made by Group <span class="text-primary">8</span> D3 TI 22 with all my heart <span style="color: red;">❤️</span></a>
+                </p>
+
+            </div>
+            <div class="col-md-6 px-xl-0 text-center text-md-right">
+                <span style="font-weight: bold;">Payment Support:</span>
+                <img class="img-fluid payment-icon" src="~/Images/Payment/paypal.png" alt="PayPal">
+                <img class="img-fluid payment-icon" src="~/Images/Payment/qris.png" alt="PayPal">
+
+            </div>
+
+        </div>
+    </div>
+</footer>

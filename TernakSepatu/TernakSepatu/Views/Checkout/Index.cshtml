@@ -1,0 +1,64 @@
+﻿@model TernakSepatu.Models.Checkout
+
+<h1>Checkout</h1>
+
+<h2>Cart Items</h2>
+@if (Model.CartItems != null && Model.CartItems.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                    <td>@(item.Quantity * item.Price)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <strong>Total Amount: @Model.TotalAmount.ToString("C")</strong>
+    </div>
+}
+else
+{
+    <p>No items in the cart.</p>
+}
+
+<h2>Checkout Form</h2>
+<form method="post" asp-action="PlaceOrder">
+    <input type="hidden" asp-for="CartItems" value="@Model.CartItems" /> <!-- Kirim CartItems sebagai input tersembunyi -->
+
+    <label for="SelectedAddressId">Select Address:</label>
+    <select asp-for="SelectedAddressId" asp-items="@Model.AddressOptions"></select><br /><br />
+
+
+
+    <label for="PaymentMethod">Payment Method:</label>
+    <select asp-for="PaymentMethod" class="form-control">
+        <option value="QrCode">QrCode</option>
+        <option value="Paypal">Paypal</option>
+        <option value="COD">COD</option>
+    </select>
+    <br /><br />
+
+
+    <label for="ShippingMethod">Shipping Method:</label>
+    <select asp-for="ShippingMethod" class="form-control">
+        <option value="JNT">JNT</option>
+    </select>
+    <br /><br />
+
+    <button type="submit">Place Order</button>
+</form>
+

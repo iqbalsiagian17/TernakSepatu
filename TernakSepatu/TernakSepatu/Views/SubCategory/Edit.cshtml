@@ -1,0 +1,43 @@
+﻿@model TernakSepatu.Models.SubCategoryDto
+
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Edit SubCategory</h6>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="SubCategoryName">SubCategory Name</label>
+                        <input asp-for="SubCategoryName" class="form-control" id="SubCategoryName" />
+                        <span asp-validation-for="SubCategoryName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="CategoryID">Category</label>
+                        <select asp-for="CategoryID" class="form-control" id="CategoryID">
+                            <option value="">-- Select Category --</option>
+                            @foreach (var category in ViewBag.Categories)
+                            {
+                                <option value="@category.Id">@category.CategoryName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryID" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                        <div class="col text-right">
+                            <a class="btn btn-outline-primary" asp-controller="SubCategory" asp-action="Index" role="button">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

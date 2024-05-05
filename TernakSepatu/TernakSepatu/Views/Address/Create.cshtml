@@ -1,0 +1,45 @@
+﻿@model TernakSepatu.Models.AddressInfo
+
+@{
+    Layout = "~/Views/Shared/Costumer/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Alamat Baru</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Tambah Alamat Baru</h2>
+        <form asp-controller="Address" asp-action="Create" method="post">
+            <div class="form-group">
+                <label for="street">Street:</label>
+                <input type="text" class="form-control" id="street" name="street" required>
+                <small id="streetHelp" class="form-text text-muted">
+                    Selain Nama Jalan Tempat Tingaal Anda, Tolong tambahkan deskripsi tempat tinggal Anda di sini, seperti nomor rumah atau catatan khusus yang membantu menggambarkan lokasi Anda untuk pengiriman paket.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" class="form-control" id="state" name="state" required>
+            </div>
+            <div class="form-group">
+                <label for="postal_code">Postal Code:</label>
+                <input type="text" class="form-control" id="postal_code" name="postal_code" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" class="form-control" id="country" name="country" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+﻿@model List<TernakSepatu.Models.SubCategory>
+
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <!-- Simple Tables -->
+        <div class="card mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">SubCategory List</h6>
+                <a asp-controller="SubCategory" asp-action="Create" class="btn btn-primary">Create SubCategory</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>No</th>
+                            <th>SubCategory Name</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var subcategory in Model)
+                        {
+                            <tr>
+                                <td>@subcategory.Id</td>
+                                <td>@subcategory.SubCategoryName</td>
+                                <td>@subcategory.Category.CategoryName</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" asp-controller="SubCategory" asp-action="Edit" asp-route-id="@subcategory.Id">Edit</a>
+                                    <a class="btn btn-primary btn-sm" asp-controller="SubCategory" asp-action="Delete" asp-route-id="@subcategory.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
