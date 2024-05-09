@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "FAQs";
+    Layout = "~/Views/Shared/Costumer/_Layout.cshtml";
+}
+
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <h1>Frequently Asked Questions (FAQs)</h1>
+
+<div class="accordion" id="faqAccordion">
+    <!-- FAQ Item 1 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                Bagaimana cara melakukan pemesanan produk?
+            </button>
+        </h2>
+        <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Untuk melakukan pemesanan produk, ikuti langkah-langkah berikut:
+                <ol>
+                    <li>Login ke akun Anda atau daftar jika belum memiliki akun.</li>
+                    <li>Jelajahi katalog produk dan tambahkan produk yang Anda inginkan ke keranjang belanja.</li>
+                    <li>Setelah selesai memilih produk, lanjutkan ke halaman checkout.</li>
+                    <li>Pilih metode pembayaran dan pengiriman yang diinginkan.</li>
+                    <li>Selesaikan pembayaran dan tunggu konfirmasi pesanan Anda.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Item 2 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                Bagaimana cara melacak pesanan saya?
+            </button>
+        </h2>
+        <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Anda dapat melacak pesanan Anda dengan melakukan login ke akun Anda dan pergi ke halaman "Pesanan Saya". Di sana Anda akan melihat status pesanan dan nomor pelacakan (jika tersedia) untuk setiap pesanan yang Anda buat.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                Bagaimana jika saya ingin mengembalikan atau menukar produk?
+            </button>
+        </h2>
+        <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                Untuk informasi tentang pengembalian atau pertukaran produk, silakan kunjungi halaman kebijakan pengembalian kami atau hubungi layanan pelanggan kami untuk bantuan lebih lanjut.
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

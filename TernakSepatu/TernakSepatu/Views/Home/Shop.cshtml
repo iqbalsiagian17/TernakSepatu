@@ -97,11 +97,11 @@
                     <div class="col-lg-3 col-md-12">
                         <!-- Color Start -->
             <div class="border-bottom mb-4 pb-4">
-                <h5 class="font-weight-semi-bold mb-4">Filter by Color</h5>
+                <h5 class="font-weight-semi-bold mb-4">Filter Berdasarkan Warna</h5>
                 <form id="colorFilterForm">
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                         <input type="checkbox" class="custom-control-input color-checkbox" name="color" value="all" id="color-all" checked>
-                        <label class="custom-control-label" for="color-all">All Color</label>
+                        <label class="custom-control-label" for="color-all">Semua Warnar</label>
                         <span class="badge border font-weight-normal">1000</span>
                     </div>
                     @foreach (var color in ViewBag.Colors)
@@ -118,11 +118,11 @@
                         <!-- Color End -->
                         <!-- Size Start -->
             <div class="mb-5">
-                <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
+                <h5 class="font-weight-semi-bold mb-4">Filter Berdasarakan Ukuran</h5>
                 <form>
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                         <input type="checkbox" class="custom-control-input size-checkbox" checked id="size-all">
-                        <label class="custom-control-label" for="size-all">All Size</label>
+                        <label class="custom-control-label" for="size-all">Semua Ukuran</label>
                         <span class="badge border font-weight-normal">1000</span>
                     </div>
                     @foreach (var size in ViewBag.Size)
@@ -180,12 +180,12 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
-                                    <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>View Detail</a>
+                                    <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>Lihat Detail</a>
                                     <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-wishlist" data-product-id="@product.Id">
                                         <i class="fas fa-heart text-dark mr-1"></i>
                                     </a>
                                     <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id">
-                                        <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
+                                        <i class="fas fa-shopping-cart text-dark mr-1"></i> + Keranjang
                                     </a>
                                 </div>
                             </div>

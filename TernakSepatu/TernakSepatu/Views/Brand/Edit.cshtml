@@ -5,8 +5,8 @@
 }
 
 <div class="row">
-    <div class="col-lg-6">
-        <!-- Form Basic -->
+    <div class="col-lg-12">
+        <!-- Form Dasar -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Edit Brand</h6>
@@ -15,20 +15,20 @@
                 <form asp-action="Edit" method="post" enctype="multipart/form-data">
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
-                        <label for="brandName">Brand Name</label>
-                        <input asp-for="BrandName" class="form-control" id="brandName" placeholder="Enter brand name">
+                        <label for="brandName">Nama Brand</label>
+                        <input asp-for="BrandName" class="form-control" id="brandName" placeholder="Masukkan nama brand">
                         <span asp-validation-for="BrandName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="imageURL">Image</label>
+                        <label for="imageURL">Gambar</label>
                         <input type="file" name="ImageURL" class="form-control" id="imageURL">
                         <span asp-validation-for="ImageURL" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <img src="/Images/Brand/@Model.ImageURL" class="mx-auto" width="500" /> <!-- Tambahkan kelas 'mx-auto' di sini -->
                     </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <a class="btn btn-outline-primary" asp-controller="Brand" asp-action="Index" role="button">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <a class="btn btn-outline-primary" asp-controller="Brand" asp-action="Index" role="button">Batal</a>
                 </form>
             </div>
         </div>

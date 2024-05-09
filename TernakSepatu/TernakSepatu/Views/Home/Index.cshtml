@@ -7,6 +7,10 @@
 }
 
 @{
+    int count = 0; // variabel untuk menghitung jumlah produk yang telah ditampilkan
+}
+
+@{
     var context = ViewData.Model as TernakSepatu.Data.TernakSepatuDBContext;
     var userId = ViewData["UserId"] as string; // Mendapatkan userId dari ViewData
 }
@@ -123,7 +127,7 @@
                         <img class="img-fluid brand-image" src="~/Images/Brand/@brand.ImageURL" alt="">
                     </a>
                     <!-- Menampilkan jumlah total Produk -->
-                    <p class="text-right">@totalProductsForBrand Products</p>
+                    <p class="text-right">@totalProductsForBrand Produk</p>
                     <!-- Menampilkan nama Brand -->
                     <h5 class="font-weight-semi-bold m-0">@brand.BrandName</h5>
                 </div>
@@ -141,12 +145,12 @@
 
 
     <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2">New Products</span></h2>
+        <h2 class="section-title px-5"><span class="px-2">Produk Terbaru</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
         @foreach (var product in newProducts)
         {
-            if (product.Stock != "Habis")
+            if (product.Stock != "Habis" && count < 4) // Periksa stok dan jumlah produk yang telah ditampilkan
             {
                 <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                     <div class="card product-item border-0 mb-4">
@@ -164,18 +168,20 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>View Detail</a>
+                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>Lihat Detail</a>
 
                             <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-wishlist" data-product-id="@product.Id">
                                 <i class="fas fa-heart text-dark mr-1"></i>
                             </a>
 
                             <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id">
-                                <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
+                                <i class="fas fa-shopping-cart text-dark mr-1"></i> + Keranjang
                             </a>
                         </div>
                     </div>
                 </div>
+                count++; // Tambahkan jumlah produk yang telah ditampilkan
+
             }
         }
     </div>
@@ -184,7 +190,7 @@
 
 
     <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2">Trendy Products</span></h2>
+        <h2 class="section-title px-5"><span class="px-2">Produk Yang Lagi Hype</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
         @foreach (var product in randomProducts)
@@ -207,14 +213,14 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>View Detail</a>
+                            <a href="@Url.Action("Detail", "Home", new { id = product.Id })" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-dark mr-1"></i>Lihat Detail</a>
 
                             <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-wishlist" data-product-id="@product.Id">
                                 <i class="fas fa-heart text-dark mr-1"></i>
                             </a>
 
                             <a href="#" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@product.Id">
-                                <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
+                                <i class="fas fa-shopping-cart text-dark mr-1"></i> + Keranjang
                             </a>
                         </div>
                     </div>

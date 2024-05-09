@@ -1,6 +1,5 @@
 ﻿@model TernakSepatu.Models.SubCategoryDto
 
-
 @{
     Layout = "~/Views/Shared/Admin/_Layout.cshtml";
 }
@@ -10,20 +9,20 @@
         <!-- Form Basic -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Create SubCategory</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Buat Subkategori</h6>
             </div>
             <div class="card-body">
                 <form method="post">
                     <div class="form-group">
-                        <label for="SubCategoryName">SubCategory Name</label>
+                        <label for="SubCategoryName">Nama Subkategori</label>
                         <input asp-for="SubCategoryName" class="form-control" id="SubCategoryName" />
                         <span asp-validation-for="SubCategoryName" class="text-danger"></span>
                     </div>
-             
+
                     <div class="form-group">
-                        <label for="CategoryID">Category</label>
+                        <label for="CategoryID">Kategori</label>
                         <select asp-for="CategoryID" class="form-control" id="CategoryID">
-                            <option value="">-- Select Category --</option>
+                            <option value="">-- Pilih Kategori --</option>
                             @foreach (var category in ViewBag.Categories)
                             {
                                 <option value="@category.Id">@category.CategoryName</option>
@@ -34,10 +33,10 @@
 
                     <div class="row">
                         <div class="col">
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" class="btn btn-primary">Buat</button>
                         </div>
                         <div class="col text-right">
-                            <a class="btn btn-outline-primary" asp-controller="SubCategory" asp-action="Index" role="button">Cancel</a>
+                            <a class="btn btn-outline-primary" asp-controller="SubCategory" asp-action="Index" role="button">Batal</a>
                         </div>
                     </div>
                 </form>

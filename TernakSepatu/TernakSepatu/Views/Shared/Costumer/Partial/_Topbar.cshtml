@@ -13,11 +13,14 @@
     <div class="row bg-secondary py-2 px-xl-5">
         <div class="col-lg-6 d-none d-lg-block">
             <div class="d-inline-flex align-items-center">
-                <a class="text-dark" href="">FAQs</a>
+                <a class="text-dark" asp-action="Index" asp-controller="Faq">FAQs</a>
                 <span class="text-muted px-2">|</span>
-                <a class="text-dark" asp-controller="Order" asp-action="Index">Lihat Pesanan Saya</a>
-                <span class="text-muted px-2">|</span>
-                <a class="text-dark" asp-action="Index" asp-controller="Address">Alamat</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="text-dark" asp-controller="Order" asp-action="Index">Lihat Pesanan Saya</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" asp-action="Index" asp-controller="Address">Alamat Saya</a>
+                }
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
@@ -33,7 +36,7 @@
     <div class="row align-items-center py-3 px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a asp-controller="Home" asp-action="Index" class="text-decoration-none">
-                <img src="~/Images/Logo/Logo.png" alt="Ternak Sepatu" class="img-fluid" style="width: 500px; height: 70px; object-fit: contain;">
+                <img src="~/Images/Logo/Logo2.png" alt="Ternak Sepatu" class="img-fluid" style="width: 500px; height: 100px; object-fit: cover;">
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">

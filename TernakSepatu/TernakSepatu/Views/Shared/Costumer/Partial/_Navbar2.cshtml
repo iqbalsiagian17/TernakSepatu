@@ -13,7 +13,7 @@
     <div class="row border-top px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a class="btn shadow-none d-flex align-items-center justify-content-between bg-dark text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                <h6 class="m-0 text-white">Categories</h6>
+                <h6 class="m-0 text-white">Kategori</h6>
                 <i class="fa fa-angle-down text-white"></i>
             </a>
             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
@@ -35,9 +35,12 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a asp-controller="Home" asp-action="Index" class="nav-item nav-link">Home</a>
-                        <a asp-controller="Home" asp-action="Shop" class="nav-item nav-link">Shop</a>
-                        <a href="~/Admin/Dashboard" class="nav-item nav-link">Admin</a>
+                        <a asp-controller="Home" asp-action="Index" class="nav-item nav-link">Beranda</a>
+                        <a asp-controller="Home" asp-action="Shop" class="nav-item nav-link">Belanja</a>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <a href="~/Admin/Dashboard" class="nav-item nav-link">Admin</a>
+                        }
                     </div>
                     @if (!SignInManager.IsSignedIn(User))
                     {

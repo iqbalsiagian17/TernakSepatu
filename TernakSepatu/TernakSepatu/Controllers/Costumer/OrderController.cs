@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 using TernakSepatu.Areas.Identity.Data;
 using TernakSepatu.Data;
 using TernakSepatu.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TernakSepatu.Controllers
 {
+    [Authorize]
+
     public class OrderController : Controller
     {
         private readonly TernakSepatuDBContext _context;

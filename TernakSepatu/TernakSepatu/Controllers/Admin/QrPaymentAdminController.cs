@@ -70,6 +70,7 @@ namespace TernakSepatu.Controllers.Admin
 
 
 
+
         public IActionResult Approve()
         {
             var pendingProofs = _context.PaymentQrProofs
@@ -103,7 +104,7 @@ namespace TernakSepatu.Controllers.Admin
             }
 
             // Redirect kembali ke halaman Index untuk menampilkan daftar bukti pembayaran
-            return RedirectToAction("Index");
+            return RedirectToAction("Approve");
         }
 
         [HttpPost]

@@ -7,28 +7,28 @@
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
         <div class="col-md-12">
-            <h1>Order Details</h1>
+            <h1>Detail Pesanan</h1>
 
             <table class="table">
                 <tbody>
                     <tr>
-                        <td><strong>Order ID:</strong></td>
+                        <td><strong>ID Pesanan:</strong></td>
                         <td>@Model.OrderId</td>
                     </tr>
                     <tr>
-                        <td><strong>Order Date:</strong></td>
+                        <td><strong>Tanggal Pesanan:</strong></td>
                         <td>@Model.OrderDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
                     </tr>
                     <tr>
-                        <td><strong>Total Amount:</strong></td>
+                        <td><strong>Total Pembayaran:</strong></td>
                         <td>@Model.TotalAmount.ToString("C")</td>
                     </tr>
                     <tr>
-                        <td><strong>Payment Method:</strong></td>
+                        <td><strong>Metode Pembayaran:</strong></td>
                         <td>@Model.PaymentMethod</td>
                     </tr>
                     <tr>
-                        <td><strong>Shipping Method:</strong></td>
+                        <td><strong>Metode Pengiriman:</strong></td>
                         <td>@Model.ShippingMethod</td>
                     </tr>
                     <tr>
@@ -36,7 +36,7 @@
                         <td>@Model.Status</td>
                     </tr>
                     <tr>
-                        <td><strong>Tujuan:</strong></td>
+                        <td><strong>Alamat Pengiriman:</strong></td>
                         <td>@Model.ShippingAddress</td>
                     </tr>
                 </tbody>
@@ -45,14 +45,14 @@
 
             <hr />
 
-            <h2>Order Items</h2>
+            <h2>Detail Barang Pesanan</h2>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price Per Unit</th>
+                        <th>Produk</th>
+                        <th>Jumlah</th>
+                        <th>Harga Per Unit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,18 +65,18 @@
                         </tr>
                     }
 
-                    <!-- Additional logic for multiple products -->
+                    <!-- Logika tambahan untuk beberapa produk -->
                     @if (Model.OrderDetails.Count > 1)
                     {
                         <tr>
-                            <td colspan="3"><strong>Total Order Amount:</strong></td>
+                            <td colspan="3"><strong>Total Pembayaran Pesanan:</strong></td>
                             <td>@Model.TotalAmount.ToString("C")</td>
                         </tr>
                     }
                 </tbody>
             </table>
 
-            <a asp-action="Index" class="btn btn-dark">Back to Orders</a>
+            <a asp-action="Index" class="btn btn-dark">Kembali ke Daftar Pesanan</a>
         </div>
     </div>
 </div>

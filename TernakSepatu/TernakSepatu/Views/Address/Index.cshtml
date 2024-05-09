@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Alamat Anda</title>
+    <title>Daftar Alamat Anda</title>
 </head>
 <body>
     <div class="container-fluid pt-5">
@@ -21,12 +21,12 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Street</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Postal Code</th>
-                        <th>Country</th>
-                        <th>Action</th> <!-- New column for action -->
+                        <th>Jalan</th>
+                        <th>Kota</th>
+                        <th>Provinsi</th>
+                        <th>Kode Pos</th>
+                        <th>Negara</th>
+                        <th>Tindakan</th> <!-- Kolom baru untuk tindakan -->
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +41,7 @@
                             <td>@address.country</td>
                             <td>
                                 <a href="@Url.Action("Edit", "Address", new { id = address.Id })">Edit</a> |
-                                <a href="@Url.Action("Delete", "Address", new { id = address.Id })">Delete</a>
+                                <a href="@Url.Action("Delete", "Address", new { id = address.Id })">Hapus</a>
                             </td>
                         </tr>
                     }

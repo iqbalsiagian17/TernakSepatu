@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 using TernakSepatu.Areas.Identity.Data;
 using TernakSepatu.Data;
 using TernakSepatu.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TernakSepatu.Controllers.Customer
 {
-    public class CartController : Controller
+    [Authorize]
+        public class CartController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;

@@ -3,82 +3,109 @@
 @{
     Layout = "~/Views/Shared/Costumer/_Layout.cshtml";
 }
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-8">
+            <div class="mb-4">
+                <h1>Checkout</h1>
 
-<h1>Checkout</h1>
+                <h2>Cart Items</h2>
+                @if (Model.CartItems != null && Model.CartItems.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Produk</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.CartItems)
+                            {
+                                <tr>
+                                    <td>@item.Product.ProductName</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Price</td>
+                                    <td>@(item.Quantity * item.Price)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
 
-<h2>Cart Items</h2>
-@if (Model.CartItems != null && Model.CartItems.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.CartItems)
-            {
-                <tr>
-                    <td>@item.Product.ProductName</td>
-                    <td>@item.Quantity</td>
-                    <td>@item.Price</td>
-                    <td>@(item.Quantity * item.Price)</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <div>
-        <strong>Total Amount: <span id="totalAmount">@Model.TotalAmount.ToString("C")</span></strong>
+                }
+                else
+                {
+                    <p>Tidak ada Item yang ditambahkan.</p>
+                }
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div>
+                <h2>Checkout Form</h2>
+                <form method="post" asp-action="PlaceOrder">
+                    <input type="hidden" asp-for="CartItems" value="@Model.CartItems" />
+
+                    <div class="form-group">
+                        <label for="SelectedAddressId">Select Address:</label>
+                        <select asp-for="SelectedAddressId" asp-items="@Model.AddressOptions" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PaymentMethod">Payment Method:</label>
+                        <select asp-for="PaymentMethod" class="form-control">
+                            <option disabled selected>Pilih Pemabayaran Anda</option>
+                            <option value="QrCode">QrCode</option>
+                            <option value="COD">COD</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ShippingMethod">Shipping Method:</label>
+                        <select id="shippingMethod" asp-for="ShippingMethod" class="form-control">
+                            <option disabled selected>Pilih pengiriman Anda</option>
+                            <option value="JNT">JNT</option>
+                        </select>
+                        <ul class="small text-muted">
+                            <li>Jika anda menggunakan COD, otomatis Shipping menjadi Gratis!</li>
+                            <li>Jika anda menggunakan Selain COD, otomatis Shipping menjadi tambah Rp50.000!</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <strong>Total Amount: <span id="totalAmount">@Model.TotalAmount.ToString("C")</span></strong>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+                </form>
+            </div>
+        </div>
     </div>
-}
-else
-{
-    <p>No items in the cart.</p>
-}
+</div>
 
-<h2>Checkout Form</h2>
-<form method="post" asp-action="PlaceOrder">
-    <input type="hidden" asp-for="CartItems" value="@Model.CartItems" />
 
-    <label for="SelectedAddressId">Select Address:</label>
-    <select asp-for="SelectedAddressId" asp-items="@Model.AddressOptions"></select><br /><br />
 
-    <label for="PaymentMethod">Payment Method:</label>
-    <select asp-for="PaymentMethod" class="form-control">
-        <option value="QrCode">QrCode</option>
-        <option value="Paypal">Paypal</option>
-        <option value="COD">COD</option>
-    </select>
-    <br /><br />
 
-    <label for="ShippingMethod">Shipping Method:</label>
-    <select id="shippingMethod" asp-for="ShippingMethod" class="form-control">
-        <option disabled selected>Pilih pengiriman Anda</option>
-        <option value="JNT">JNT</option>
-    </select>
 
-    <br /><br />
 
-    <button type="submit">Place Order</button>
-</form>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#shippingMethod').change(function () {
-            var selectedShippingMethod = $(this).val();
-            var totalAmount = parseFloat('@Model.TotalAmount');
 
-            // If JNT is selected, add $50 to the total
-            if (selectedShippingMethod === 'JNT') {
-                totalAmount += 50000;
-            }
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#shippingMethod').change(function () {
+                    var selectedShippingMethod = $(this).val();
+                    var totalAmount = parseFloat('@Model.TotalAmount');
 
-            // Update the total amount display
-            $('#totalAmount').text(totalAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }));
-        });
-    });
-</script>
+                    // If JNT is selected, add Rp 50.000 to the total
+                    if (selectedShippingMethod === 'JNT') {
+                        totalAmount += 50000;
+                    }
+
+                    // Update the total amount display with Rupiah format
+                    $('#totalAmount').text(totalAmount.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }));
+                });
+            });
+        </script>

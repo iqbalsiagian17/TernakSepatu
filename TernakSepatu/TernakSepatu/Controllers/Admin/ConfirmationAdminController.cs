@@ -18,9 +18,19 @@ namespace TernakSepatu.Controllers.Admin
         // Action untuk menampilkan daftar orders
         public IActionResult Index()
         {
-            var orders = _context.Orders.ToList();
-            return View(orders);
+            try
+            {
+                var orders = _context.Orders.ToList();
+                return View(orders);
+            }
+            catch (Exception ex)
+            {
+                // Tangani pengecualian di sini
+                Console.WriteLine($"An error occurred while fetching orders: {ex.Message}");
+                throw; // Re-throw the exception to let it bubble up
+            }
         }
+
 
         // Action untuk mengubah status order dari "Menunggu Konfirmasi Admin" menjadi "Pesanan Anda sedang diproses"
         public IActionResult ProcessOrder(int orderId)

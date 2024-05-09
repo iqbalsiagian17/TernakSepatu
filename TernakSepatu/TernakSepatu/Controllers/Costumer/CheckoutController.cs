@@ -87,6 +87,11 @@ namespace TernakSepatu.Controllers.Customer
                 totalAmount += 50000;
             }
 
+            if (model.ShippingMethod == "JNT" && model.PaymentMethod == "COD")
+            {
+                totalAmount -= 50000;
+            }
+
             string status = model.PaymentMethod == "COD" ? "Menunggu Konfirmasi Admin" : "Menunggu Pembayaran";
 
             var order = new Order

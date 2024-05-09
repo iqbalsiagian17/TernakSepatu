@@ -3,32 +3,38 @@
 @{
     ViewData["Title"] = "Payment QR Methods";
     Layout = "~/Views/Shared/Admin/_Layout.cshtml";
-
 }
 
 
-<h1>Payment QR Methods</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Add New</a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Image URL</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var qrMethod in Model)
-        {
-            <tr>
-                <td>@qrMethod.Id</td>
-                <td>@qrMethod.Name</td>
-                <td><img src="/Images/QrPayment/@qrMethod.ImageUrl" width="100" /></td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Jenis Pembayaran</h6>
+                <a asp-action="Create" class="btn btn-primary">Tambahkan</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Jenis Pemabayaran</th>
+                            <th>QR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var qrMethod in Model)
+                        {
+                            <tr>
+                                <td>@qrMethod.Id</td>
+                                <td>@qrMethod.Name</td>
+                                <td><img src="/Images/QrPayment/@qrMethod.ImageUrl" width="100" /></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer"></div>
+        </div>
+    </div>
+</div>

@@ -4,13 +4,22 @@
     Layout = "~/Views/Shared/Admin/_Layout.cshtml";
 }
 
-
-
-<h1>Ship Order - Order ID: @Model.OrderId</h1>
-
-<form asp-controller="ConfirmationAdmin" asp-action="ShipOrder" method="post">
-    <input type="hidden" name="orderId" value="@Model.OrderId" />
-    <label for="trackingNumber">Tracking Number:</label>
-    <input type="text" id="trackingNumber" name="trackingNumber" required />
-    <button type="submit">Ship Order</button>
-</form>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="font-weight-bold text-primary">Ekspedisi Orderan - Orderan ID: @Model.OrderId</h4>
+            </div>
+            <div class="card-body">
+                <form asp-controller="ConfirmationAdmin" asp-action="ShipOrder" method="post">
+                    <div class="form-group">
+                        <input type="hidden" name="orderId" value="@Model.OrderId" />
+                        <label for="trackingNumber">Nomor Pelacakan:</label>
+                        <input type="text" id="trackingNumber" name="trackingNumber" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-success">Kirim Pesanan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

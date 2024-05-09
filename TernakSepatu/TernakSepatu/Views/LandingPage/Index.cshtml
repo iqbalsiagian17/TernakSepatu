@@ -1,54 +1,48 @@
-﻿    @model List<LandingPage>
-    @{
-        ViewData["Title"] = "List of Landing Page";
-    }
+﻿@model List<LandingPage>
+@{
+    ViewData["Title"] = "Daftar Landing Page";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+    int index = 1;
+}
 
-    @{
-        Layout = "~/Views/Shared/Admin/_Layout.cshtml";
-        int index = 1;
-
-    }
-
-    <div class="row">
-        <div class="col-lg-12 mb-4">
-            <!-- Simple Tables -->
-            <div class="card">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">List of Landing Page</h6>
-                    <a asp-controller="LandingPage" asp-action="Create">Create</a>
-                </div>
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>No</th>
-                                <th>Images</th> 
-                                <th>Text</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@index</td>
-                                    <td><img src="/Images/LandingPage/@item.ImageURL" width="100" /></td>
-                                    <td>@item.Text</td>
-                                    <td>@item.Status</td>
-                                    <td style="white-space:nowrap">
-                                        <a class="btn btn-primary btn-sm" asp-controller="LandingPage" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                                        <a class="btn btn-primary btn-sm" asp-controller="LandingPage" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                    </td>
-                                </tr>
-                                index++; // Increment index inside the loop
-
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer"></div>
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <!-- Tabel Sederhana -->
+        <div class="card">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Daftar Landing Page</h6>
+                <a asp-controller="LandingPage" asp-action="Create">Tambahkan</a>
             </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>No</th>
+                            <th>Gambar</th>
+                            <th>Teks</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@index</td>
+                                <td><img src="/Images/LandingPage/@item.ImageURL" width="100" /></td>
+                                <td>@item.Text</td>
+                                <td>@item.Status</td>
+                                <td style="white-space:nowrap">
+                                    <a class="btn btn-primary btn-sm" asp-controller="LandingPage" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                    <a class="btn btn-primary btn-sm" asp-controller="LandingPage" asp-action="Delete" asp-route-id="@item.Id">Hapus</a>
+                                </td>
+                            </tr>
+                            index++; // Tambahkan index di dalam loop
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer"></div>
         </div>
     </div>
+</div>

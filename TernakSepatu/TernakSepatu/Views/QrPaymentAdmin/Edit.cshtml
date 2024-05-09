@@ -1,0 +1,49 @@
+﻿@model TernakSepatu.Models.PaymentQrMethodDto
+
+@{
+    ViewData["Title"] = "Edit Payment QR Method";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        Please fix the following errors:
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Edit Payment QR Method</h6>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="Name">Jenis Pemabayaran:</label>
+                        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ImageUrl">QR:</label>
+                        <input type="file" id="ImageUrl" name="ImageUrl" class="form-control-file" />
+                        <img src="@Model.ImageUrl" width="200" /> <!-- Menampilkan gambar -->
+
+                    </div>
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

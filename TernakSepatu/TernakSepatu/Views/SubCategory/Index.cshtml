@@ -9,17 +9,17 @@
         <!-- Simple Tables -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">SubCategory List</h6>
-                <a asp-controller="SubCategory" asp-action="Create" class="btn btn-primary">Create SubCategory</a>
+                <h6 class="m-0 font-weight-bold text-primary">Daftar Subkategori</h6>
+                <a asp-controller="SubCategory" asp-action="Create" class="btn btn-primary">Tambah Subkategori</a>
             </div>
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
                             <th>No</th>
-                            <th>SubCategory Name</th>
-                            <th>Category</th>
-                            <th>Action</th>
+                            <th>Nama Subkategori</th>
+                            <th>Kategori</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,7 +31,7 @@
                                 <td>@subcategory.Category.CategoryName</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" asp-controller="SubCategory" asp-action="Edit" asp-route-id="@subcategory.Id">Edit</a>
-                                    <a class="btn btn-primary btn-sm" asp-controller="SubCategory" asp-action="Delete" asp-route-id="@subcategory.Id">Delete</a>
+                                    <a class="btn btn-primary btn-sm" asp-controller="SubCategory" asp-action="Delete" asp-route-id="@subcategory.Id">Hapus</a>
                                 </td>
                             </tr>
                         }

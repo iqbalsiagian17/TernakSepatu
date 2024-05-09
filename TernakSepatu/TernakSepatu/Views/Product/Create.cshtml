@@ -1,27 +1,26 @@
 ﻿@model TernakSepatu.Models.ProductDto
-
 @{
     Layout = "~/Views/Shared/Admin/_Layout.cshtml";
 }
 
 <div class="row">
     <div class="col-lg-12">
-        <!-- Form Basic -->
+        <!-- Form Dasar -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Create Product</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Tambah Produk</h6>
             </div>
             <div class="card-body">
                 <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="ProductName">Product Name</label>
+                        <label for="ProductName">Nama Produk</label>
                         <input asp-for="ProductName" class="form-control" id="ProductName" />
                         <span asp-validation-for="ProductName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="CategoryID">Category</label>
+                        <label for="CategoryID">Kategori</label>
                         <select asp-for="CategoryID" class="form-control" id="CategoryID">
-                            <option value="">-- Select Category --</option>
+                            <option value="">-- Pilih Kategori --</option>
                             @foreach (var category in ViewBag.Categories)
                             {
                                 <option value="@category.Id">@category.CategoryName</option>
@@ -30,9 +29,9 @@
                         <span asp-validation-for="CategoryID" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="BrandID">Brand</label>
+                        <label for="BrandID">Merek</label>
                         <select asp-for="BrandID" class="form-control" id="BrandID">
-                            <option value="">-- Select Brand --</option>
+                            <option value="">-- Pilih Merek --</option>
                             @foreach (var brand in ViewBag.Brands)
                             {
                                 <option value="@brand.Id">@brand.BrandName</option>
@@ -41,9 +40,9 @@
                         <span asp-validation-for="BrandID" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="SubCategoryID">Subcategory</label>
+                        <label for="SubCategoryID">Subkategori</label>
                         <select asp-for="SubCategoryID" class="form-control" id="SubCategoryID">
-                            <option value="">-- Select Subcategory --</option>
+                            <option value="">-- Pilih Subkategori --</option>
                             @foreach (var subcategory in ViewBag.SubCategories)
                             {
                                 <option value="@subcategory.Id">@subcategory.SubCategoryName</option>
@@ -52,55 +51,55 @@
                         <span asp-validation-for="SubCategoryID" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="Size">Size</label>
+                        <label for="Size">Ukuran</label>
                         <input asp-for="Size" class="form-control" id="Size" />
                         <span asp-validation-for="Size" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="Colors">Colors</label>
+                        <label for="Colors">Warna</label>
                         <select asp-for="Colors" class="form-control" id="Colors">
-                            <option value="">Select Color</option>
-                            <option value="White">White</option>
-                            <option value="Black">Black</option>
-                            <option value="Blue">Blue</option>
-                            <option value="Grey">Grey</option>
-                            <option value="Red">Red</option>
-                            <option value="Green">Green</option>
-                            <option value="White-Black">White - Black</option>
-                            <option value="White-Blue">White - Blue</option>
-                            <option value="White-Grey">White - Grey</option>
-                            <option value="White-Green">White - Green</option>
-                            <option value="Black-Blue">Black - Blue</option>
-                            <option value="Black-Red">Black - Red</option>
-                            <option value="Black-Green">Black - Green</option>
+                            <option value="">Pilih Warna</option>
+                            <option value="Putih">Putih</option>
+                            <option value="Hitam">Hitam</option>
+                            <option value="Biru">Biru</option>
+                            <option value="Abu-abu">Abu-abu</option>
+                            <option value="Merah">Merah</option>
+                            <option value="Hijau">Hijau</option>
+                            <option value="Putih-Hitam">Putih - Hitam</option>
+                            <option value="Putih-Biru">Putih - Biru</option>
+                            <option value="Putih-Abu">Putih - Abu</option>
+                            <option value="Putih-Hijau">Putih - Hijau</option>
+                            <option value="Hitam-Biru">Hitam - Biru</option>
+                            <option value="Hitam-Merah">Hitam - Merah</option>
+                            <option value="Hitam-Hijau">Hitam - Hijau</option>
                         </select>
                         <span asp-validation-for="Colors" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="Details">Details</label>
+                        <label for="Details">Detail</label>
                         <textarea asp-for="Details" class="form-control" id="Details"></textarea>
                         <span asp-validation-for="Details" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="ImageURL">Product Image</label>
+                        <label for="ImageURL">Gambar Produk</label>
                         <input type="file" class="form-control-file" id="ImageURL" name="ImageURL" multiple />
                         <span asp-validation-for="ImageURL" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="Price">Price</label>
+                        <label for="Price">Harga</label>
                         <input asp-for="Price" class="form-control" id="Price" />
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="Discount">Discount</label>
+                        <label for="Discount">Diskon</label>
                         <input asp-for="Discount" class="form-control" id="Discount" />
                         <span asp-validation-for="Discount" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label for="Gender">Gender</label>
+                        <label for="Gender">Jenis Kelamin</label>
                         <select asp-for="Gender" class="form-control" id="Gender">
-                            <option value="">Select Gender</option>
+                            <option value="">Pilih Jenis Kelamin</option>
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Wanita">Wanita</option>
                             <option value="Unisex">Unisex</option>
@@ -109,30 +108,30 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Stock">Stock</label>
+                        <label for="Stock">Stok</label>
                         <select asp-for="Stock" class="form-control" id="Stock">
-                            <option value="">Select Stock</option>
-                            <option value="Ready">Ready</option>
+                            <option value="">Pilih Stok</option>
+                            <option value="Tersedia">Tersedia</option>
                         </select>
                         <span asp-validation-for="Stock" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="Condition">Condition</label>
+                        <label for="Condition">Kondisi</label>
                         <select asp-for="Condition" class="form-control" id="Condition">
-                            <option value="">Select Condition</option>
-                            <option value="Second">Second</option>
-                            <option value="New">New</option>
+                            <option value="">Pilih Kondisi</option>
+                            <option value="Bekas">Bekas</option>
+                            <option value="Baru">Baru</option>
                         </select>
                         <span asp-validation-for="Condition" class="text-danger"></span>
                     </div>
 
                     <div class="row">
                         <div class="col">
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" class="btn btn-primary">Buat</button>
                         </div>
                         <div class="col text-right">
-                            <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index" role="button">Cancel</a>
+                            <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index" role="button">Batal</a>
                         </div>
                     </div>
                 </form>
@@ -140,4 +139,3 @@
         </div>
     </div>
 </div>
-

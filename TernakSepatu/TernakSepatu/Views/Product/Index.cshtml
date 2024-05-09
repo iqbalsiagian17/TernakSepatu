@@ -1,30 +1,29 @@
 ﻿@model List<TernakSepatu.Models.Product>
-
 @{
-    ViewData["Title"] = "List of Products";
+    ViewData["Title"] = "Daftar Produk";
     Layout = "~/Views/Shared/Admin/_Layout.cshtml";
     int index = 1;
 }
 
 <div class="row">
     <div class="col-lg-12 mb-4">
-        <!-- Simple Tables -->
+        <!-- Tabel Sederhana -->
         <div class="card">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">List of Products</h6>
-                <a asp-controller="Product" asp-action="Create">Create</a>
+                <h6 class="m-0 font-weight-bold text-primary">Daftar Produk</h6>
+                <a asp-controller="Product" asp-action="Create">Tambahkan</a>
             </div>
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
                             <th>No</th>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>Subcategory</th>
-                            <th>Brand</th>
-                            <th>Price</th>
-                            <th>Action</th>
+                            <th>Nama Produk</th>
+                            <th>Kategori</th>
+                            <th>Subkategori</th>
+                            <th>Merek</th>
+                            <th>Harga</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,10 +38,10 @@
                                 <td>@product.Price</td>
                                 <td style="white-space:nowrap">
                                     <a class="btn btn-primary btn-sm" asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
-                                    <a class="btn btn-primary btn-sm" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                                    <a class="btn btn-primary btn-sm" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">Hapus</a>
                                 </td>
                             </tr>
-                            index++; // Increment index inside the loop
+                            index++; // Tambahkan index di dalam loop
                         }
                     </tbody>
                 </table>

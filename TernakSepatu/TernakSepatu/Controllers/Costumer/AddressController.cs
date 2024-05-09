@@ -6,9 +6,13 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http; // Add this namespace
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace TernakSepatu.Controllers.Customer
 {
+    [Authorize]
+
     public class AddressController : Controller
     {
         private readonly TernakSepatuDBContext context;
